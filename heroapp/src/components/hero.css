@@ -1,0 +1,20 @@
+.hero-card{
+    display: inline-block;
+    width: 45vw;
+    height: 500px;
+    margin: 10px;
+    justify-content: flex-start;
+}
+
+.hero-name{
+    font-weight: bolder;
+}
+
+.hero-alterEgo{
+    font-weight: bold;
+}
+
+img{
+    height: 250px;
+    width: 350px;
+}
