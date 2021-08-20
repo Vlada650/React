@@ -1,10 +1,10 @@
 function Table() {
     return (
         <section>
-            <div>Слово</div>
-            <div>Транскрипция</div>
-            <div>Перевод</div>
-            <div>Тема</div>
+            <div className="">Слово</div>
+            <div className="">Транскрипция</div>
+            <div className="">Перевод</div>
+            <div className="">Тема</div>
         </section>
     );
 }
