@@ -1,0 +1,144 @@
+/*$mainColor: rgb(255,255,255);*/
+
+.mainContainer{
+    padding: 15px 25px;
+    background-color: rgb(79, 86, 189);
+    color: rgb(255, 255, 255);
+    height: 80vh;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(79, 86, 189);
+    border-bottom: 1px solid white;
+    color: rgb(247, 133, 177);
+}
+
+.header__button-add{
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: rgb(247, 133, 177);
+    color: rgb(79, 86, 189);
+    font-weight: 600;
+ }
+
+.header__promo{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.mainContainer-header{
+    margin: 0;
+    font-size: large;
+    font-weight: bold;
+    color: rgb(247, 133, 177);
+}
+
+.mainContainer__list{
+    font-size:medium;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+
+.cardContainer__modalWrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.cardContainer__modal {
+    width: 80vw;
+    height: 80vh;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    position: relative;
+    padding: 2em;
+    overflow: auto;
+    background-color: rgb(79, 86, 189); 
+    margin: auto;
+}
+
+.cardContainer__modal label {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 200%;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+}
+
+#openclose,
+.cardContainer__modalWrapper {
+    display: none;
+}
+
+#openclose:checked~.cardContainer__modalWrapper {
+    display: flex;
+}
+
+
+.footer__promo{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid white;
+    color: rgb(247, 133, 177);
+    background-color: rgb(79, 86, 189);
+}
+
+
+.card{
+    border: 1px solid black;
+    width: 200px;
+    height: 250px;
+    padding: 50px 30px;
+    background: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgba(245,129,178,0.9780287114845938) 100%);
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.card__word{
+    font-size:x-large;
+    font-weight: bolder;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.card__scription{
+    font-style: italic;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    color: rgb(79, 86, 189);
+}
+
+.card__translate{
+    font-size: larger;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.card__unit{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+}

@@ -1,9 +1,10 @@
 
 function Footer() {
     return (
-        <div className="">
-            <span className="">Изучай новые слова каждый день!</span>
-            <div className="">logo/picture??</div>
+        <div className="footer">
+            <div className="footer__img">??</div>
+            <span className="footer__promo">Изучай новые слова каждый день!</span>
+            <div className="footer__info">Info</div>
         </div>
     );
 }

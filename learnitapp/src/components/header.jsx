@@ -1,10 +1,10 @@
 
 function Header() {
     return (
-        <div className="">
-            <span className="">Изучай новые слова каждый день!</span>
-            <div className="">logo/picture??</div>
-            <button className="">Добавить новое слово</button>
+        <div className="header">
+            <div className="header__img">??</div>
+            <span className="header__promo">Изучай новые слова каждый день!</span>
+            <button className="header__button-add">Добавить новое слово</button>
         </div>
     );
 }
