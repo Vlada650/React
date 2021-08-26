@@ -21,7 +21,7 @@ function List() {
         <div className="mainContainer">
             {
                 words.map((word) =>
-                    <UnitCards word={word.word} russian={word.russian} transcription={word.transcription} unit={word.unit} />
+                    <UnitCards key={word.word} russian={word.russian} transcription={word.transcription} unit={word.unit} />
                 )
             }
 
