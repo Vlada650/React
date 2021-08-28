@@ -1,15 +1,14 @@
 import React from "react";
-import UnitCards from "./allcards";
 import './mainpage.scss';
 
 const words = [
     {
-        word: "Potato",
+        english: "Potato",
         russian: "Картошка",
         transcription: "hhhhhh",
         unit: "Овощи"
     }, {
-        word: "Tomato",
+        english: "Tomato",
         russian: "Помидор",
         transcription: "aaaaaaa",
         unit: "Овощи"
@@ -21,10 +20,8 @@ function List() {
         <div className="mainContainer">
             {
                 words.map((word) =>
-                    <UnitCards key={word.word} russian={word.russian} transcription={word.transcription} unit={word.unit} />
-                )
-            }
-
+                    <List key={word.english} english={word.english} russian={word.russian} transcription={word.transcription} unit={word.unit} isSelected={word.isSelected} />
+                )}
             <p className="mainContainer-header">Список тем:</p>
             <ol>
                 <li className="mainContainer__list"><label for="openclose" className="mainContainer__list-label">Овощи</label></li>
@@ -44,8 +41,14 @@ function List() {
                 <li className="mainContainer__list"><label for="openclose" className="mainContainer__list-label"> Транспорт</label></li>
                 <div>Автобус, автомобиль, самолет, корабль, светофор, дорога, вертолет</div>
             </ol>
+            {/*< div className="header__popup-content" >
+                <div className="number"></div>
+                <div className="english">{props.english}</div>
+                <div className="sound">{props.transcription}</div>
+                <div className="russian">{props.russian}</div>
+            </div >*/}
 
-        </div>
+        </div >
     );
 }
 

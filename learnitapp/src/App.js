@@ -1,11 +1,12 @@
+import React from 'react';
 import './App.css';
+import 'normalize.css';
+import './components/mainpage.scss';
 import Header from './components/header'
 import List from './components/mainpage'
+import UnitCards from './components/allcards';
 import Footer from './components/footer'
-import Card from './components/card'
-import UnitCards from './components/allcards'
-import 'normalize.css'
-import React from 'react';
+
 
 function App() {
   return (

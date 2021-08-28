@@ -43,7 +43,7 @@ body{
     text-decoration: underline;
 }
 
-.cardContainer__modalWrapper {
+ .cardContainer__modalWrapper {
     position: fixed;
     left: 0;
     top: 0;
@@ -52,7 +52,7 @@ body{
     display: flex;
 }
 
-.cardContainer__modal {
+ .cardContainer__modal {
     width: 80vw;
     height: 70vh;
     border-radius: 4px;
@@ -75,7 +75,6 @@ body{
     text-align: center;
     cursor: pointer;
 }
-
 #openclose,
 .cardContainer__modalWrapper {
     display: none;
@@ -99,7 +98,7 @@ body{
     background-color: $mainColor;
 }
 
-.card{
+ .card{
     border: 1px solid black;
     width: 200px;
     height: 250px;
@@ -143,10 +142,6 @@ body{
 .mainContainer__list-label{
     cursor: pointer;
 }
-
-
-
-
 .card__button{
     display: flex;
     justify-content: flex-end;
@@ -196,15 +191,9 @@ body{
 .card__button-add:hover::after {
   opacity: 1;
   transform: scale(1,1);
-}
-
-
-
-
-.header__popup-checkbox, .header__popup {
+} .header__popup-checkbox, .header__popup {
     display: none;
-  }
-  
+  } 
   .header__popup {
     position: fixed;
     top: 0;
@@ -227,20 +216,22 @@ body{
 }
   
   .header__popup-content {
-    z-index: 2;
-    width: 80vw;
-    height: 70vh;
+   z-index: 2;
+   width: 80vw;
+   height: 70vh;
     border-radius: 5px;
-    position: relative;
+   position: relative;
+    display: flex;
     padding: 2em;
-    overflow: auto;
+   overflow: auto;
     background-color: $mainColor; 
-    margin: auto;
+    margin: auto; 
     display: grid;
     grid-template-columns: 2% 1fr 1fr 1fr 10% ;
+  
   }
   
-  .header__popup-shower {
+.header__popup-shower {
     color: $mainColor;
         border-radius: 5px;
         padding: 5px 10px;
@@ -276,4 +267,16 @@ body{
 
 .english, .russian, .sound, .number, .buttons {
 border: 1px solid $fontColor;
+width: 100px;
+padding: 8px;
 }
+
+/*.number{
+    width: 5px;
+}
+
+.buttons-edit, .buttons-delete{
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+}*/

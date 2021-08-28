@@ -4,7 +4,7 @@ import React from "react";
 function Header() {
     return (
         <div className="header">
-            <div className="header__img"><img src="" alt="" />??</div>
+            <div className="header__img"><img src="logo.png" alt="logo" />??</div>
             <span className="header__promo">Just learn it!<label for="closeopen"></label></span>
             <label for="popupCheckbox" className="header__popup-shower">Добавить новое слово</label>
             <input type="checkbox" className="header__popup-checkbox" id="popupCheckbox" />
@@ -19,6 +19,7 @@ function Header() {
                 </div>
             </div>
         </div>
+
     );
 }
 
