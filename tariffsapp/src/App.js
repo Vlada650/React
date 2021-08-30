@@ -1,5 +1,6 @@
 import './App.css';
 import List from './components/tariffs';
+import './components/tariffs.css'
 
 const tariffs = [
   {

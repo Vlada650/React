@@ -39,3 +39,16 @@
     padding: 15px;
     color: rgb(83, 82, 82);
 }
+
+.selected__tariff{
+    background-color: rgb(180, 35, 35);  
+}
+
+.selected__header{
+height: 35px;
+margin-top: -10px;
+}
+
+.selected__card{
+    box-shadow:  0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+}
