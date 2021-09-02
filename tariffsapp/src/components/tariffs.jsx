@@ -6,7 +6,7 @@ function List(props) {
     const [checked, setChecked] = useState(false)
 
     return (
-        <div className={"mainContainer" + (props.price == 550 ? " selected__card" : "")} {...props} onClick={() => { setChecked(true) }} id="container" tabindex="0" onBlur={() => { setChecked(false) }}> {
+        <div className={"mainContainer" + (props.price == 550 ? " selected__card" : "")} {...props} onClick={() => { setChecked(true) }} id="container" tabIndex="0" onBlur={() => { setChecked(false) }}> {
             checked
                 ? (<div className="checked" >
                     <button className="checked__circle">&#10004;</button>
