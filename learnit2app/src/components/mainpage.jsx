@@ -1,42 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import UnitCards from "./allcards";
 import './mainpage.scss';
 
+function List(props) {
 
-function List() {
+    const [clicked, setClicked] = useState(false)
+
     return (
-        <div className="mainContainer">
-            {
-                words.map((word) =>
-                    <UnitCards key={word.english} english={word.english} russian={word.russian} transcription={word.transcription} unit={word.unit} />
-                )}
+        <div className="mainContainer" >
             <p className="mainContainer-header">Список тем:</p>
             <ol>
-                <li className="mainContainer__list"><label for="openclose" className="mainContainer__list-label">Овощи</label></li>
+                <li className="mainContainer__list" onClick={() => { setClicked(true) }} >Овощи</li>
+                {clicked
+                    && (<div className="card__container">
+                        <label onClick={() => { setClicked(false) }} tabIndex="0" onBlur={() => { setClicked(false) }} className="mainContainer-closer">&#215;</label>{
+                            props.words.map((word) =>
+                                <UnitCards key={word.english} english={word.english} russian={word.russian} transcription={word.transcription} unit={word.unit} />)}
+                    </div>)
+                }
+                <li className="mainContainer__list">Фрукты</li>
+                <li className="mainContainer__list">Одежда</li>
+                <li className="mainContainer__list">Животные</li>
+                <li className="mainContainer__list">Спорт</li>
+                <li className="mainContainer__list">Школа</li>
+                <li className="mainContainer__list">Семья</li>
+                <li className="mainContainer__list">Транспорт</li>
+                {/*<div>Автобус, автомобиль, самолет, корабль, светофор, дорога, вертолет</div>
                 <div>, морковь, баклажан, кабачок, капуста, , огурец, лук, чеснок, кукуруза</div>
-                <li className="mainContainer__list"><label for="openclose" className="mainContainer__list-label" id="label">Фрукты</label></li>
                 <div>Яблоко, груша, ананас, киви, банан, апельсин, гранат, мандарин, персик, манго</div>
-                <li className="mainContainer__list"><label for="openclose" className="mainContainer__list-label">Одежда</label></li>
                 <div>Футболка, шорты, брюки, джинсы, юбка, платье, костюм, куртка, шляпа, туфли</div>
-                <li className="mainContainer__list"><label for="openclose" className="mainContainer__list-label">Животные</label></li>
-                <div>Кот, собака, тигр, лев, слон, заяц, жираф, зебра, обезьяна, страус</div>
-                <li className="mainContainer__list"><label for="openclose" className="mainContainer__list-label">Спорт</label></li>
+                <div>Кот, собака, тигр, лев, слон, заяц, жираф, зебра, обезьяна, страус</div> 
                 <div>Велосипед, спортзал, упражнение, тренер, мяч, скакалка, спортсмен, бассейн, волейбол, баскетбол</div>
-                <li className="mainContainer__list"><label for="openclose" className="mainContainer__list-label">Школа</label></li>
-                <div>Ученик, учитель, тетрадь, книга, парта, доска, ручка, карандаш, предмет, тема</div>
-                <li className="mainContainer__list"><label for="openclose" className="mainContainer__list-label">Семья</label></li>
-                <div>Мама, папа, дочь, сын, брат, сестра, бабушка, дедушка, родители, бабушка с дедушкой</div>
-                <li className="mainContainer__list"><label for="openclose" className="mainContainer__list-label"> Транспорт</label></li>
-                <div>Автобус, автомобиль, самолет, корабль, светофор, дорога, вертолет</div>
+                 <div>Ученик, учитель, тетрадь, книга, парта, доска, ручка, карандаш, предмет, тема</div>
+                <div>Мама, папа, дочь, сын, брат, сестра, бабушка, дедушка, родители, бабушка с дедушкой</div>*/}
             </ol>
-            {/*< div className="header__popup-content" >
-                <div className="number"></div>
-                <div className="english">{props.english}</div>
-                <div className="sound">{props.transcription}</div>
-                <div className="russian">{props.russian}</div>
-            </div >*/}
-
-        </div >
+        </div>
     );
 }
 

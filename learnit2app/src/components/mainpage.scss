@@ -1,11 +1,15 @@
 $mainColor: rgb(80, 88, 199);
 $fontColor: rgb(255,255,255);
 $detailColor: rgb(247, 133, 177);
-
+$backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100%);
 
 body{
     font-family: 'Source Serif Pro', serif;
 }
+
+.logo-img{
+    height: 30px;
+} 
 
 .mainContainer{
     padding: 15px 25px;
@@ -13,6 +17,33 @@ body{
     color:  $fontColor;
     height: 80vh;
 }
+
+.mainContainer-header{
+    margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+    color: $detailColor;
+}
+
+.mainContainer__list{
+    font-size:20px;
+    font-style: italic;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.mainContainer-closer{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 200%;
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    color: $fontColor;
+} 
 
 .header{
     display: flex;
@@ -23,87 +54,112 @@ body{
     color: $detailColor;
 }
 
-
-
 .header__promo{
     font-size: 25px;
     font-weight: 800;
 }
 
-.mainContainer-header{
-    margin: 0;
-    font-size: large;
-    font-weight: bold;
-    color: $detailColor;
+.header__popup-shower {
+    color: $mainColor;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: $detailColor;
+    font-weight: 600;
+    line-height: 30px;
+    cursor: pointer;
+    margin-right: 20px;
 }
 
-.mainContainer__list{
-    font-size:medium;
-    font-style: italic;
+.header__popup-shower:hover {
+    color: #00a;
     text-decoration: underline;
 }
 
- .cardContainer__modalWrapper {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-}
-
- .cardContainer__modal {
+.popup__container {
     width: 80vw;
-    height: 70vh;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    position: relative;
+    height: 80vh;
+    border-radius: 5px;
+    position: absolute;
     padding: 2em;
     overflow: auto;
-    background-color: $mainColor; 
-    margin: auto;
+    background: $backGradient;
+    margin: 30px 30px 30px 50px; 
+    border-collapse: collapse;
 }
 
-.cardContainer__modal label {
+.popup__container-closer {
     position: absolute;
-    right: 5px;
     top: 5px;
+    right: 5px;
     font-size: 200%;
     width: 20px;
     height: 20px;
     line-height: 1;
     text-align: center;
     cursor: pointer;
-}
-#openclose,
-.cardContainer__modalWrapper {
-    display: none;
-}
+    color: $fontColor;
+}     
 
-#openclose:checked~.cardContainer__modalWrapper {
-    display: flex;
-}
-
-.footer__promo{
-    font-size: 25px;
+.popup__container-table {
     font-weight: bold;
-}
-
-.footer{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-top: 1px solid white;
+	padding: 10px;
+	background: #efefef;
+	border: 1px solid $fontColor;
+    width: 200px;
     color: $detailColor;
-    background-color: $mainColor;
+    font-size: 20px;
 }
 
- .card{
-    border: 1px solid black;
+input {
+    width: 150px;
+}
+
+.table__text {
+    border: 1px solid #efefef;
+	padding: 10px;
+    background: $fontColor;
+    color: $mainColor;
+    width: 200px;
+    font-size: 18px;
+}
+
+.table__button {
+    border: 1px solid #efefef;
+	padding: 10px;
+    background: $fontColor;
+    color: $mainColor;
+    width: 200px;
+    margin: 10px;
+}
+
+.table__button-btn{
+    border: 1px solid #efefef;
+	padding: 8px;
+    color: $fontColor;
+    background: $mainColor;
+    border-radius: 15px;
+    margin: 0px 15px;
+    width: 60px;
+    cursor: pointer;
+}
+ 
+ .card__container {
+    position: absolute; 
+    width: 80vw;
+    height:70vh;
+    display: flex;
+    border: 2px solid $detailColor;
+    background-color: $mainColor;
+    margin-top: -50px;
+    padding: 2em;
+    border-radius: 10px;
+}
+
+.card {
     width: 200px;
     height: 250px;
     padding: 50px 30px;
-    background: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgba(245,129,178,0.9) 100%);
+    background: $backGradient;
     border: 2px solid white;
     border-radius: 10px;
 }
@@ -137,11 +193,8 @@ body{
     display: flex;
     justify-content: flex-end;
     margin-top: 40px;
-}
-
-.mainContainer__list-label{
-    cursor: pointer;
-}
+} 
+    
 .card__button{
     display: flex;
     justify-content: flex-end;
@@ -191,96 +244,18 @@ body{
 .card__button-add:hover::after {
   opacity: 1;
   transform: scale(1,1);
-} .header__popup-checkbox, .header__popup {
-    display: none;
-  } 
-  .header__popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    margin-top: 100px;
-  }
-  
-  .header__popup:before {
-    display: block;
-    content: ' ';
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+} 
+
+.footer__promo{
+    font-size: 25px;
+    font-weight: bold;
 }
-  
-  .header__popup-content {
-   z-index: 2;
-   width: 80vw;
-   height: 70vh;
-    border-radius: 5px;
-   position: relative;
+
+.footer{
     display: flex;
-    padding: 2em;
-   overflow: auto;
-    background-color: $mainColor; 
-    margin: auto; 
-    display: grid;
-    grid-template-columns: 2% 1fr 1fr 1fr 10% ;
-  
-  }
-  
-.header__popup-shower {
-    color: $mainColor;
-        border-radius: 5px;
-        padding: 5px 10px;
-        background-color: $detailColor;
-        font-weight: 600;
-        line-height: 30px;
-        cursor: pointer;
-        margin-right: 20px;
-    }
-  
-  
-  .header__popup-shower:hover {
-    color: #00a;
-    text-decoration: underline;
-  }
-  
-  .header__popup-closer {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 200%;
-    width: 20px;
-    height: 20px;
-    line-height: 1;
-    text-align: center;
-    cursor: pointer;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid white;
+    color: $detailColor;
+    background-color: $mainColor;
 }
-
-.header__popup-checkbox:checked + .header__popup {
-    opacity: 1;
-    display: block;
-}
-
-.english, .russian, .sound, .number, .buttons {
-border: 1px solid $fontColor;
-width: 100px;
-padding: 8px;
-}
-
-.logo-img{
-    height: 30px;
-}
-
-/*.number{
-    width: 5px;
-}
-
-.buttons-edit, .buttons-delete{
-    width: 25px;
-    height: 25px;
-    margin-left: 15px;
-}*/

@@ -4,9 +4,7 @@ import 'normalize.css';
 import './components/mainpage.scss';
 import Header from './components/header'
 import List from './components/mainpage'
-import UnitCards from './components/allcards';
 import Footer from './components/footer'
-
 
 const words = [
   {
@@ -25,9 +23,8 @@ const words = [
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Header words={words} />
       <List words={words} />
-      <UnitCards words={words} />
       <Footer />
     </div>
   );
