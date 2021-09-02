@@ -9,7 +9,7 @@ function Allwords(props) {
     const [valueTr, setValueTr] = useState(props.transcription)
 
     return (
-        <div>
+        <tbody>
             {
                 isSelected ? (<tr className="table" >
                     <td className="table__text"><input type="text" onBlur={() => { toggleSelected(false) }} onChange={(val) => setValueEn(val.target.valueEn)} value={valueEn}></input></td>
@@ -30,7 +30,7 @@ function Allwords(props) {
                             <button className="table__button-btn" onClick={() => { toggleSelected(true) }}>Edit</button>
                             <button className="table__button-btn">Delete</button></td> </tr>)
             }
-        </div>)
+        </tbody>)
 }
 
 export default Allwords;

@@ -16,14 +16,15 @@ function Header(props) {
                 clicked
                     ? (<div className="popup__container">
                         <label tabIndex="0" onClick={() => { setClicked(false) }} className="popup__container-closer">&#215;</label>
-                        <tr>
-                            <th className="popup__container-table" id="english">English</th>
-                            <th className="popup__container-table" id="sound">Transcription</th>
-                            <th className="popup__container-table" id="russian">Russian</th>
-                            <th className="popup__container-table" id="unit">Unit</th>
-                            <th className="popup__container-table" id="buttons">Buttons</th>
-
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th className="popup__container-table" id="english">English</th>
+                                <th className="popup__container-table" id="sound">Transcription</th>
+                                <th className="popup__container-table" id="russian">Russian</th>
+                                <th className="popup__container-table" id="unit">Unit</th>
+                                <th className="popup__container-table" id="buttons">Buttons</th>
+                            </tr>
+                        </thead>
                         {
                             props.words.map((word) =>
                                 <Allwords key={word.english} english={word.english} russian={word.russian} transcription={word.transcription} unit={word.unit} />)
