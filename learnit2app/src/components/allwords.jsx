@@ -7,18 +7,23 @@ function Allwords(props) {
     const [valueEn, setValueEn] = useState(props.english)
     const [valueRu, setValueRu] = useState(props.russian)
     const [valueTr, setValueTr] = useState(props.transcription)
+    //const [cancel] = useState(false)
+
+    {/*const cancel = () => {
+        document.getElementById('english').value = valueEn
+    */}
 
     return (
         <tbody>
             {
                 isSelected ? (<tr className="table" >
-                    <td className="table__text"><input type="text" onBlur={() => { toggleSelected(false) }} onChange={(val) => setValueEn(val.target.valueEn)} value={valueEn}></input></td>
-                    <td className="table__text"><input type="text" onChange={(val) => setValueTr(val.target.valueTr)} value={valueTr}></input></td>
-                    <td className="table__text"><input type="text" onChange={(val) => setValueRu(val.target.valueRu)} value={valueRu}></input></td>
+                    <td className="table__text"><input type="text" id="english" onBlur={() => { toggleSelected(false) }} onChange={(val) => setValueEn(val.target.value)} value={valueEn}></input></td>
+                    <td className="table__text"><input type="text" onBlur={() => { toggleSelected(false) }} onChange={(val) => setValueTr(val.target.value)} value={valueTr}></input></td>
+                    <td className="table__text"><input type="text" onBlur={() => { toggleSelected(false) }} onChange={(val) => setValueRu(val.target.value)} value={valueRu}></input></td>
                     <td className="table__text">{props.unit}</td>
                     <td className="table__button">
-                        <button className="table__button-btn" >Save</button>
-                        <button className="table__button-btn">Cancel</button>
+                        <button className="table__button-btn" onClick={() => { toggleSelected(false) }}>Save</button>
+                        <button className="table__button-btn" onClick={() => { toggleSelected(false) }}>Cancel</button>
                     </td>
                 </tr>)
                     : (<tr className="table" >

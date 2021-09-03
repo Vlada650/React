@@ -5,6 +5,19 @@ import './mainpage.scss';
 function List(props) {
 
     const [clicked, setClicked] = useState(false)
+    const [clicked2, setClicked2] = useState(false)
+
+    let vegetablesArr = props.words.filter(function (props) {
+        if (props.unit == "Овощи") {
+            return true;
+        }
+    });
+
+    let fruitsArr = props.words.filter(function (props) {
+        if (props.unit == "Фрукты") {
+            return true;
+        }
+    });
 
     return (
         <div className="mainContainer" >
@@ -14,11 +27,17 @@ function List(props) {
                 {clicked
                     && (<div className="card__container">
                         <label onClick={() => { setClicked(false) }} tabIndex="0" onBlur={() => { setClicked(false) }} className="mainContainer-closer">&#215;</label>{
-                            props.words.map((word) =>
+                            vegetablesArr.map((word) =>
                                 <UnitCards key={word.english} english={word.english} russian={word.russian} transcription={word.transcription} unit={word.unit} />)}
                     </div>)
                 }
-                <li className="mainContainer__list">Фрукты</li>
+                <li className="mainContainer__list" onClick={() => { setClicked2(true) }} >Фрукты</li> {clicked2
+                    && (<div className="card__container">
+                        <label onClick={() => { setClicked2(false) }} tabIndex="0" onBlur={() => { setClicked2(false) }} className="mainContainer-closer">&#215;</label>{
+                            fruitsArr.map((word) =>
+                                <UnitCards key={word.english} english={word.english} russian={word.russian} transcription={word.transcription} unit={word.unit} />)}
+                    </div>)
+                }
                 <li className="mainContainer__list">Одежда</li>
                 <li className="mainContainer__list">Животные</li>
                 <li className="mainContainer__list">Спорт</li>
@@ -26,10 +45,10 @@ function List(props) {
                 <li className="mainContainer__list">Семья</li>
                 <li className="mainContainer__list">Транспорт</li>
                 {/*<div>Автобус, автомобиль, самолет, корабль, светофор, дорога, вертолет</div>
-                <div>, морковь, баклажан, кабачок, капуста, , огурец, лук, чеснок, кукуруза</div>
-                <div>Яблоко, груша, ананас, киви, банан, апельсин, гранат, мандарин, персик, манго</div>
-                <div>Футболка, шорты, брюки, джинсы, юбка, платье, костюм, куртка, шляпа, туфли</div>
-                <div>Кот, собака, тигр, лев, слон, заяц, жираф, зебра, обезьяна, страус</div> 
+                <div>кабачок, капуста, лук, чесно</div>
+                <div>киви, , апельсин, гранат, мандарин, , манго</div>
+                <div>джинсы, юбка, , костюм, , шляпа, туфли</div>
+                <div> слон, заяц, жираф, зебра, обезьяна</div> 
                 <div>Велосипед, спортзал, упражнение, тренер, мяч, скакалка, спортсмен, бассейн, волейбол, баскетбол</div>
                  <div>Ученик, учитель, тетрадь, книга, парта, доска, ручка, карандаш, предмет, тема</div>
                 <div>Мама, папа, дочь, сын, брат, сестра, бабушка, дедушка, родители, бабушка с дедушкой</div>*/}

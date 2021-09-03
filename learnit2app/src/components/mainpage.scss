@@ -156,18 +156,18 @@ input {
 }
 
 .card {
-    width: 200px;
-    height: 250px;
-    padding: 50px 30px;
+    width: 120px;
+    height: 180px;
+    padding: 35px 30px;
     background: $backGradient;
     border: 2px solid white;
     border-radius: 10px;
+    margin: 10px;
 }
 
 .card__word{
-    font-size:x-large;
+    font-size:30px;
     font-weight: bolder;
-    margin-top: 30px;
     padding-bottom: 10px;
     display: flex;
     justify-content: center;
@@ -180,6 +180,7 @@ input {
     display: flex;
     justify-content: center;
     color: $mainColor;
+    font-size: 18px;
 }
 
 .card__translate{
@@ -187,33 +188,30 @@ input {
     font-weight: bold;
     display: flex;
     justify-content: center;  
-}
-
-.card__unit{
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 40px;
+    margin-top: 50px;
+    color: $mainColor;
+    font-size: 25px;
 } 
     
 .card__button{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .card__button-add {
     color: $mainColor;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 5px;
     background-color: rgba(245, 131, 184);
     font-weight: 600;
     transition: all 0.5s;
     position: relative;
-    line-height: 20px;
+    line-height: 12px;
     cursor: pointer;
-    font-size: 13px;
-    margin-top: 40px;
-
+    font-size: 15px;
+    margin-top: 50px;
 }
+
 .card__button-add::before {
   content: '';
   position: absolute;
