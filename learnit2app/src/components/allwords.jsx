@@ -17,9 +17,9 @@ function Allwords(props) {
         <tbody>
             {
                 isSelected ? (<tr className="table" >
-                    <td className="table__text"><input type="text" id="english" onBlur={() => { toggleSelected(false) }} onChange={(val) => setValueEn(val.target.value)} value={valueEn}></input></td>
-                    <td className="table__text"><input type="text" onBlur={() => { toggleSelected(false) }} onChange={(val) => setValueTr(val.target.value)} value={valueTr}></input></td>
-                    <td className="table__text"><input type="text" onBlur={() => { toggleSelected(false) }} onChange={(val) => setValueRu(val.target.value)} value={valueRu}></input></td>
+                    <td className="table__text"><input type="text" id="english" onChange={(val) => setValueEn(val.target.value)} value={valueEn}></input></td>
+                    <td className="table__text"><input type="text" onChange={(val) => setValueTr(val.target.value)} value={valueTr}></input></td>
+                    <td className="table__text"><input type="text" onChange={(val) => setValueRu(val.target.value)} value={valueRu}></input></td>
                     <td className="table__text">{props.unit}</td>
                     <td className="table__button">
                         <button className="table__button-btn" onClick={() => { toggleSelected(false) }}>Save</button>
