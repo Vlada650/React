@@ -27,7 +27,7 @@ function App() {
     <div className="App">
       {
         tariffs.map((tariff) =>
-          <List key={tariff.tariff} header={tariff.header} price={tariff.price} speed={tariff.speed} />
+          <List key={tariff.price} header={tariff.header} price={tariff.price} speed={tariff.speed} />
         )
       }
     </div>
