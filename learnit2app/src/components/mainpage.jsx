@@ -4,8 +4,8 @@ import './mainpage.scss';
 
 function List(props) {
 
-    const [clicked, setClicked] = useState(false)
-    const [clicked2, setClicked2] = useState(false)
+    const [clickVeg, setClickVeg] = useState(false)
+    const [clickFruit, setClickFruit] = useState(false)
 
     let vegetablesArr = props.words.filter(function (props) {
         if (props.unit == "Овощи") {
@@ -23,17 +23,17 @@ function List(props) {
         <div className="mainContainer" >
             <p className="mainContainer-header">Список тем:</p>
             <ol>
-                <li className="mainContainer__list" onClick={() => { setClicked(true) }} >Овощи</li>
-                {clicked
+                <li className="mainContainer__list" onClick={() => { setClickVeg(true) }} >Овощи</li>
+                {clickVeg
                     && (<div className="card__container">
-                        <label onClick={() => { setClicked(false) }} tabIndex="0" onBlur={() => { setClicked(false) }} className="mainContainer-closer">&#215;</label>{
+                        <label onClick={() => { setClickVeg(false) }} tabIndex="0" onBlur={() => { setClickVeg(false) }} className="mainContainer-closer">&#215;</label>{
                             vegetablesArr.map((word) =>
                                 <UnitCards key={word.english} english={word.english} russian={word.russian} transcription={word.transcription} unit={word.unit} />)}
                     </div>)
                 }
-                <li className="mainContainer__list" onClick={() => { setClicked2(true) }} >Фрукты</li> {clicked2
+                <li className="mainContainer__list" onClick={() => { setClickFruit(true) }} >Фрукты</li> {clickFruit
                     && (<div className="card__container">
-                        <label onClick={() => { setClicked2(false) }} tabIndex="0" onBlur={() => { setClicked2(false) }} className="mainContainer-closer">&#215;</label>{
+                        <label onClick={() => { setClickFruit(false) }} tabIndex="0" onBlur={() => { setClickFruit(false) }} className="mainContainer-closer">&#215;</label>{
                             fruitsArr.map((word) =>
                                 <UnitCards key={word.english} english={word.english} russian={word.russian} transcription={word.transcription} unit={word.unit} />)}
                     </div>)

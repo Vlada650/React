@@ -117,6 +117,31 @@ const words = [
     russian: "Лев",
     transcription: "aaaaaaa",
     unit: "Животныее"
+  }, {
+    english: "Apple",
+    russian: "Яблоко",
+    transcription: "aaaaaaa",
+    unit: "Фрукты"
+  }, {
+    english: "Peach",
+    russian: "Персик ",
+    transcription: "aaaaaaa",
+    unit: "Фрукты"
+  }, {
+    english: "Pear",
+    russian: "Груша ",
+    transcription: "aaaaaaa",
+    unit: "Фрукты"
+  }, {
+    english: "Pineapple",
+    russian: "Ананас ",
+    transcription: "aaaaaaa",
+    unit: "Фрукты"
+  }, {
+    english: "Banana",
+    russian: "Банан ",
+    transcription: "aaaaaaa",
+    unit: "Фрукты"
   },
 ];
 

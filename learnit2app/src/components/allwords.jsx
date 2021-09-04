@@ -28,7 +28,7 @@ function Allwords(props) {
                 </tr>)
                     : (<tr className="table" >
                         <td className="table__text">{valueEn}</td>
-                        <td className="table__text">{valueTr}</td>
+                        <td className="table__text">[{valueTr}]</td>
                         <td className="table__text">{valueRu}</td>
                         <td className="table__text">{props.unit}</td>
                         <td className="table__button">
