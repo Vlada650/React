@@ -1,8 +1,7 @@
 .user-comments{
-    width: 50vw;
-    border: 1px solid red;
     padding: 5px;
-
+    height: 50vh;
+    overflow: auto;
 }
 
 .user-comments__name{
@@ -16,7 +15,6 @@
 }
 
 .user-comments__textarea{
-    border: 1px solid red;
     width: 30vw;
     margin: 10px;
     position:absolute;  
