@@ -290,3 +290,12 @@ input {
     color: $detailColor;
     background-color: $mainColor;
 }
+
+.cardGallery{
+    width: 50vw;
+    height: 50vh;
+    border: 1px solid red;
+    position: absolute;
+    right: 0;
+    top: 130px;
+}

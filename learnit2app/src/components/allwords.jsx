@@ -1,41 +1,51 @@
-import './mainpage.scss';
 import React, { useState } from "react";
+import './mainpage.scss';
 
-function Allwords(props) {
+const Allwords = ({ word }) => {
+    const { english, russian, transcription, unit } = word
 
     const [isSelected, toggleSelected] = useState(false)
-    const [valueEn, setValueEn] = useState(props.english)
-    const [valueRu, setValueRu] = useState(props.russian)
-    const [valueTr, setValueTr] = useState(props.transcription)
-    //const [cancel] = useState(false)
+    const [value, setValue] = useState({
+        russian: russian,
+        english: english,
+        transcription: transcription,
+        unit: unit
+    });
 
-    {/*const cancel = () => {
-        document.getElementById('english').value = valueEn
-    */}
+    const handleChange = (elem) => {
+        setValue((prevWord) => {
+            return { ...prevWord, [elem.target.name]: elem.target.value };
+        });
+    };
 
+    const defaultColumns = ['english', 'russian', 'transcription']
+
+    const funcCancel = () => {
+        toggleSelected(false)
+        setValue({ ...word })
+    }
     return (
-        <tbody>
-            {
-                isSelected ? (<tr className="table" >
-                    <td className="table__text"><input type="text" id="english" onChange={(val) => setValueEn(val.target.value)} value={valueEn}></input></td>
-                    <td className="table__text"><input type="text" onChange={(val) => setValueTr(val.target.value)} value={valueTr}></input></td>
-                    <td className="table__text"><input type="text" onChange={(val) => setValueRu(val.target.value)} value={valueRu}></input></td>
-                    <td className="table__text">{props.unit}</td>
-                    <td className="table__button">
-                        <button className="table__button-btn" onClick={() => { toggleSelected(false) }}>Save</button>
-                        <button className="table__button-btn" onClick={() => { toggleSelected(false) }}>Cancel</button>
-                    </td>
-                </tr>)
-                    : (<tr className="table" >
-                        <td className="table__text">{valueEn}</td>
-                        <td className="table__text">[{valueTr}]</td>
-                        <td className="table__text">{valueRu}</td>
-                        <td className="table__text">{props.unit}</td>
-                        <td className="table__button">
-                            <button className="table__button-btn" onClick={() => { toggleSelected(true) }}>Edit</button>
-                            <button className="table__button-btn">Delete</button></td> </tr>)
+        <tbody>{isSelected ? (<>
+            {defaultColumns.map(w => {
+                return (
+                    <>
+                        handleSelected={toggleSelected} handleChange={handleChange} name={w} value={value[w]} </>
+                )
+            })
             }
-        </tbody>)
+        </>
+        )
+            : (
+                <tr className="table" >
+                    <td className="table__text">{value.english}</td>
+                    <td className="table__text">[{value.transcription}]</td>
+                    <td className="table__text">{value.russian}</td>
+                    <td className="table__text">{value.unit}</td>
+                    <td className="table__button">
+                        <button className="table__button-btn" onClick={funcCancel}>Edit</button>
+                        <button className="table__button-btn">Delete</button></td>
+                </tr>)
+        }
+        </tbody >)
 }
-
 export default Allwords;

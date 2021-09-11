@@ -27,7 +27,7 @@ function Header(props) {
                         </thead>
                         {
                             props.words.map((word) =>
-                                <Allwords key={word.english} english={word.english} russian={word.russian} transcription={word.transcription} unit={word.unit} />)
+                                <Allwords words={word} key={word.english} english={word.english} russian={word.russian} transcription={word.transcription} unit={word.unit} />)
                         }
                     </div>)
                     : null

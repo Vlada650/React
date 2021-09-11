@@ -1,10 +1,10 @@
 import React from 'react';
+import Header from './components/header';
+import List from './components/mainpage';
+import Footer from './components/footer';
 import './App.css';
 import 'normalize.css';
 import './components/mainpage.scss';
-import Header from './components/header'
-import List from './components/mainpage'
-import Footer from './components/footer'
 
 const words = [
   {
