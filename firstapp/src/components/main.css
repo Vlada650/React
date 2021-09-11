@@ -1,0 +1,45 @@
+.user-comments{
+    width: 50vw;
+    border: 1px solid red;
+    padding: 5px;
+
+}
+
+.user-comments__name{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-comments__text{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.user-comments__textarea{
+    border: 1px solid red;
+    width: 30vw;
+    margin: 10px;
+    position:absolute;  
+	bottom:0; 
+}
+
+.user-comments__textarea-name{
+    margin: 15px 5px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.user-comments__textarea-text{
+    margin: 15px 5px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.user-comments__textarea-btn{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5x;
+    margin: 5px;
+    justify-content: flex-end;
+}
