@@ -78,15 +78,8 @@ body{
 }
 
 .popup__container {
-    width: 80vw;
-    height: 80vh;
-    border-radius: 5px;
-    position: absolute;
     padding: 2em;
-    overflow: auto;
     background: $backGradient;
-    margin: 30px 30px 30px 50px; 
-    border-collapse: collapse;
     overflow: auto;
 
     &::-webkit-scrollbar {
@@ -102,20 +95,7 @@ body{
         border-radius: 10px;
         border: 1px solid $fontColor;
     } 
-}
-
-.popup__container-closer {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 200%;
-    width: 20px;
-    height: 20px;
-    line-height: 1;
-    text-align: center;
-    cursor: pointer;
-    color: $fontColor;
-}     
+}  
 
 .popup__container-table {
     font-weight: bold;

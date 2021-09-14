@@ -1,10 +1,17 @@
 import React from 'react';
 import Header from './components/header';
-import List from './components/mainpage';
+import MainPage from './components/mainpage';
 import Footer from './components/footer';
+import Allwords from './components/allwords';
 import './App.css';
 import 'normalize.css';
 import './components/mainpage.scss';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const words = [
   {
@@ -145,14 +152,12 @@ const words = [
   },
 ];
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Header words={words} />
-      <List words={words} />
+      <Allwords words={words} />
       <Footer />
     </div>
   );
 }
-
-export default App;

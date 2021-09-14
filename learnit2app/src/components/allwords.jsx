@@ -3,7 +3,6 @@ import './mainpage.scss';
 
 const Allwords = ({ word }) => {
     const { english, russian, transcription, unit } = word
-
     const [isSelected, toggleSelected] = useState(false)
     const [value, setValue] = useState({
         russian: russian,
@@ -25,11 +24,13 @@ const Allwords = ({ word }) => {
         setValue({ ...word })
     }
     return (
-        <tbody>{isSelected ? (<>
+        <tbody> {isSelected ? (<>
             {defaultColumns.map(w => {
                 return (
-                    <>
-                        handleSelected={toggleSelected} handleChange={handleChange} name={w} value={value[w]} </>
+                    <button>
+                        handleSelected={toggleSelected} handleChange={handleChange} name={w} value={value[w]}
+                        <button className="table__button-btn" onClick={funcCancel}>Cancel</button>
+                        <button className="table__button-btn">Save</button></button>
                 )
             })
             }
@@ -42,10 +43,11 @@ const Allwords = ({ word }) => {
                     <td className="table__text">{value.russian}</td>
                     <td className="table__text">{value.unit}</td>
                     <td className="table__button">
-                        <button className="table__button-btn" onClick={funcCancel}>Edit</button>
+                        <button className="table__button-btn">Edit</button>
                         <button className="table__button-btn">Delete</button></td>
                 </tr>)
         }
-        </tbody >)
+        </tbody >
+    )
 }
 export default Allwords;
