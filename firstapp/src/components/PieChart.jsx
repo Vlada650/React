@@ -18,11 +18,10 @@ class CommentsField extends React.Component {
     addComment = () => {
         this.setState({
             comments: [
-                ...this.state.comments,
                 {
                     name: this.state.form.name,
                     comment: this.state.form.comment
-                }
+                }, ...this.state.comments,
             ],
             form: {
                 name: '',
