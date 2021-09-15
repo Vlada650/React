@@ -2,12 +2,13 @@ import React from 'react';
 import Header from './components/header';
 import MainPage from './components/mainpage';
 import Footer from './components/footer';
-import Allwords from './components/allwords';
+import Gallery from './components/galleryofcards';
+import UnitCards from './components/card';
 import './App.css';
 import 'normalize.css';
 import './components/mainpage.scss';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
   Link
@@ -154,10 +155,31 @@ const words = [
 
 export default function App() {
   return (
-    <div className="App">
-      <Header words={words} />
-      <Allwords words={words} />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header words={words}>
+          <ul>
+            <li>
+              <Link to="/">Home</Link></li>
+            <li><Link to="/game">Game</Link>
+            </li>
+            <li></li>
+          </ul></Header>
+        <div>
+          <Switch>
+            <Route exact path="/game"><>
+              <Gallery data={words} />
+
+            </>
+            </Route>
+            <Route exact path="/">
+              <MainPage words={words} />
+            </Route>
+            <Route>Error 404 Page not found</Route>
+          </Switch>
+        </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }

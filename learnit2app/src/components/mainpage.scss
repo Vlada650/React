@@ -114,8 +114,8 @@ input {
 .table__text {
     border: 1px solid #efefef;
 	padding: 10px 15px 10px;
-    background: $fontColor;
-    color: $mainColor;
+    background: $mainColor;
+    color: $fontColor;
     width: 200px;
     font-size: 18px;  
 }
@@ -123,8 +123,8 @@ input {
 .table__button {
     border: 1px solid #efefef;
 	padding: 10px;
-    background: $fontColor;
-    color: $mainColor;
+    background: $mainColor;
+    color: $fontColor;
     width: 200px;
     margin: 10px;
 }
@@ -132,8 +132,8 @@ input {
 .table__button-btn{
     border: 1px solid #efefef;
 	padding: 8px;
-    color: $fontColor;
-    background: $mainColor;
+    color: $mainColor;
+    background: $detailColor;
     border-radius: 15px;
     margin: 0px 15px;
     width: 60px;
@@ -167,6 +167,42 @@ input {
         border: 1px solid $fontColor;
     } 
 } 
+
+.slider{
+    height: 70vh;
+    padding-top: 10vh;
+    background-color: $mainColor;
+}
+
+.slider-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.slider-container__btn{
+    color: $mainColor;
+    height: 25px;
+    border-radius: 25px;
+    padding: 15px;
+    background-color: rgba(245, 131, 184);
+    font-weight: 600;
+    transition: all 0.5s;
+    line-height: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.slider-numbers{
+    color: $fontColor;
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
 
 .card {
     width: 120px;
