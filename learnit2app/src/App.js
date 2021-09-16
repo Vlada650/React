@@ -158,25 +158,16 @@ export default function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header words={words}>
-          <ul>
-            <li>
-              <Link to="/">Home</Link></li>
-            <li><Link to="/game">Game</Link>
-            </li>
-            <li></li>
-          </ul></Header>
-        <div>
-          <Switch>
-            <Route exact path="/game">
-              <Gallery data={words} />
-            </Route>
-            <Route exact path="/">
-              <MainPage words={words} />
-            </Route>
-            <Route>Error 404 Page not found</Route>
-          </Switch>
-        </div>
+        <Header words={words} />
+        <Switch>
+          <Route exact path="/game">
+            <Gallery data={words} />
+          </Route>
+          <Route exact path="/">
+            <MainPage words={words} />
+          </Route>
+          <Route>Error 404 Page not found</Route>
+        </Switch>
         <Footer />
       </div>
     </BrowserRouter>
