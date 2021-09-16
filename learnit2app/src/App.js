@@ -4,6 +4,7 @@ import MainPage from './components/mainpage';
 import Footer from './components/footer';
 import Gallery from './components/galleryofcards';
 import UnitCards from './components/card';
+import Allwords from './components/allwords';
 import './App.css';
 import 'normalize.css';
 import './components/mainpage.scss';
@@ -167,10 +168,8 @@ export default function App() {
           </ul></Header>
         <div>
           <Switch>
-            <Route exact path="/game"><>
+            <Route exact path="/game">
               <Gallery data={words} />
-
-            </>
             </Route>
             <Route exact path="/">
               <MainPage words={words} />

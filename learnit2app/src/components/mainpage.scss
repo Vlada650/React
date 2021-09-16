@@ -54,6 +54,9 @@ body{
     background-color: $mainColor;
     border-bottom: 1px solid white;
     color: $detailColor;
+    position: fixed;
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; 
 }
 
 .header__promo{
@@ -81,6 +84,8 @@ body{
     padding: 2em;
     background: $backGradient;
     overflow: auto;
+    margin-top: 50px;    
+
 
     &::-webkit-scrollbar {
         width: 8px;
@@ -105,6 +110,7 @@ body{
     width: 200px;
     color: $detailColor;
     font-size: 20px;
+
 }
 
 input {
@@ -169,8 +175,8 @@ input {
 } 
 
 .slider{
-    height: 70vh;
-    padding-top: 10vh;
+    height: 75vh;
+    padding-top: 20vh;
     background-color: $mainColor;
 }
 

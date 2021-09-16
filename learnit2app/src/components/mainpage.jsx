@@ -1,6 +1,7 @@
 import React from "react";
 import WordsTable from './wordstable';
 import './mainpage.scss';
+import Allwords from "./allwords";
 
 export default function MainPage({ words }) {
     return (
@@ -13,7 +14,9 @@ export default function MainPage({ words }) {
                     <th className="popup__container-table" id="unit">Unit</th>
                     <th className="popup__container-table" id="buttons">Buttons</th>
                 </tr>
-                <WordsTable words={words} />
+                {/*<WordsTable words={words} />*/}
+                <Allwords words={words} />
+
             </thead >
         </div>
     );

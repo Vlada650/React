@@ -13,7 +13,7 @@ const Gallery = ({ data }) => {
 
     const nextCardHandler = () => {
         if (position >= data.length) {
-            position = 0
+            setPosition(0)//??????????????????????????
         } else {
             setPosition(position + 1)
         }
