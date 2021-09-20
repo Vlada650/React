@@ -25,8 +25,9 @@ const Allwords = ({ words }) => {
         <tbody> {isSelected ? (<>
             {defaultColumns.map(w => {
                 return (
-                    <div >
-                        handleSelected={toggleSelected} handleChange={handleChange} name={w} value={value[w]}
+                    <div>
+                        <tr
+                            handleSelected={toggleSelected} handleChange={handleChange} name={w} value={value[w]} />
                         <button className="table__button-btn" onClick={funcCancel}>Cancel</button>
                         <button className="table__button-btn">Save</button></div>)
             })}

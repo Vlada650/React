@@ -15,9 +15,10 @@ export default function MainPage({ words }) {
                     <th className="popup__container-table" id="buttons">Buttons</th>
                 </tr>
                 {/*<WordsTable words={words} />*/}
-                <Allwords words={words} />
-
             </thead >
+            <Allwords words={words} />
+
+
         </div>
     );
 };
