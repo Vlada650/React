@@ -2,156 +2,128 @@ import React from 'react';
 import Header from './components/header';
 import MainPage from './components/mainpage';
 import Footer from './components/footer';
-import Gallery from './components/galleryofcards';
-import UnitCards from './components/card';
-import Allwords from './components/allwords';
+import Gallery from './components/cardslider';
 import './App.css';
 import 'normalize.css';
 import './components/mainpage.scss';
 import {
   BrowserRouter,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 const words = [
   {
     english: "Potato",
     russian: "Картошка",
-    transcription: "hhhhhh",
+    transcription: "pəˈteɪtəʊ",
     unit: "Овощи"
   }, {
     english: "Tomato",
     russian: "Помидор",
-    transcription: "aaaaaaa",
+    transcription: "təˈmeɪtəʊ",
     unit: "Овощи"
   }, {
     english: "Carrot",
     russian: "Морковь",
-    transcription: "aaaaaaa",
+    transcription: "ˈkærət",
     unit: "Овощи"
   }, {
     english: "Eggplant",
     russian: "Баклажан ",
-    transcription: "aaaaaaa",
+    transcription: "ˈeɡplænt",
     unit: "Овощи"
   }, {
     english: "Corn",
     russian: "Кукуруза ",
-    transcription: "aaaaaaa",
+    transcription: "kɔːrn",
     unit: "Овощи"
   }, {
     english: "Cucumber ",
     russian: "Огурец ",
-    transcription: "aaaaaaa",
+    transcription: "ˈkjuːkʌmbər",
     unit: "Овощи"
   }, {
     english: "Cabbage",
     russian: "Капуста ",
-    transcription: "aaaaaaa",
+    transcription: "ˈkæbɪdʒ",
     unit: "Овощи"
   }, {
     english: "Apple",
     russian: "Яблоко",
-    transcription: "aaaaaaa",
+    transcription: "ˈæpl",
     unit: "Фрукты"
   }, {
     english: "Peach",
     russian: "Персик ",
-    transcription: "aaaaaaa",
+    transcription: "piːtʃ",
     unit: "Фрукты"
   }, {
     english: "Pear",
     russian: "Груша ",
-    transcription: "aaaaaaa",
+    transcription: "per",
     unit: "Фрукты"
   }, {
     english: "Pineapple",
     russian: "Ананас ",
-    transcription: "aaaaaaa",
+    transcription: "ˈpaɪnæpl",
     unit: "Фрукты"
   }, {
     english: "Banana",
     russian: "Банан ",
-    transcription: "aaaaaaa",
+    transcription: "bəˈnænə",
     unit: "Фрукты"
   }, {
     english: "T-shirt",
     russian: "Футболка ",
-    transcription: "aaaaaaa",
+    transcription: "ˈtiːʃərt",
     unit: "Одежда"
   }, {
     english: "Shorts",
     russian: "Шорты ",
-    transcription: "aaaaaaa",
+    transcription: "ʃɔːrts",
     unit: "Одежда"
   }, {
     english: "Pants",
     russian: "Брюки",
-    transcription: "aaaaaaa",
+    transcription: "pænts",
     unit: "Одежда"
   }, {
     english: "Dress",
     russian: "Платье ",
-    transcription: "aaaaaaa",
+    transcription: "dres",
     unit: "Одежда"
   }, {
     english: "Jacket",
     russian: "Куртка",
-    transcription: "aaaaaaa",
+    transcription: "ˈdʒækɪt",
     unit: "Одежда"
   }, {
     english: "Cat",
     russian: "Кот",
-    transcription: "aaaaaaa",
+    transcription: "kæt",
     unit: "Животныее"
   }, {
     english: "Dog",
     russian: "Собака",
-    transcription: "aaaaaaa",
+    transcription: "dɔːɡ",
     unit: "Животныее"
   }, {
     english: "Parrot",
     russian: "Попугай",
-    transcription: "aaaaaaa",
+    transcription: "ˈpærət",
     unit: "Животныее"
   }, {
     english: "Tiger",
     russian: "Тигр",
-    transcription: "aaaaaaa",
+    transcription: "ˈtaɪɡər",
     unit: "Животныее"
   }, {
     english: "Lion",
     russian: "Лев",
-    transcription: "aaaaaaa",
+    transcription: "ˈlaɪən",
     unit: "Животныее"
-  }, {
-    english: "Apple",
-    russian: "Яблоко",
-    transcription: "aaaaaaa",
-    unit: "Фрукты"
-  }, {
-    english: "Peach",
-    russian: "Персик ",
-    transcription: "aaaaaaa",
-    unit: "Фрукты"
-  }, {
-    english: "Pear",
-    russian: "Груша ",
-    transcription: "aaaaaaa",
-    unit: "Фрукты"
-  }, {
-    english: "Pineapple",
-    russian: "Ананас ",
-    transcription: "aaaaaaa",
-    unit: "Фрукты"
-  }, {
-    english: "Banana",
-    russian: "Банан ",
-    transcription: "aaaaaaa",
-    unit: "Фрукты"
-  },
+  }
 ];
 
 export default function App() {

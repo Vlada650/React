@@ -1,23 +1,42 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import './mainpage.scss';
-import UnitCards from "./card";
 
-const CardSlider = ({ prevCard, nextCard, number, position, data, dataLength }) => {
+const Gallery = ({ data }) => {
+
+    const [position, setPosition] = useState(0)
+    const [pushed, setPushed] = useState(false);
+    const ref = useRef();
+    useEffect(() => ref.current.focus(), []);
+
+    const prevCardHandler = () => {
+        if (position > 0) {
+            setPosition(position - 1)
+        }
+    };
+
+    const nextCardHandler = () => {
+        if (position >= data.length - 1) {
+            setPosition(0)
+        } else {
+            setPosition(position + 1)
+            setPushed(false)
+        }
+    };
     return (
-        <div className="slider">
+        < div className="slider" >
             <div className="slider-container">
-                <button className="slider-container__btn" onClick={prevCard}>prev</button>
-                <UnitCards
-                    english={data[position].english}
-                    russian={data[position].russian}
-                    transcription={data[position].transcription}
-                />
-                <button className="slider-container__btn" onClick={nextCard}>next</button>
+                <button className="slider-container__btn" onClick={prevCardHandler}>prev</button>
+                <div className="card">
+                    <div className="card__word">{data[position].english}</div>
+                    <div className="card__scription">[{data[position].transcription}]</div>{
+                        pushed ? (<div className="card__translate">{data[position].russian}</div>)
+                            : (<div className="card__button"><button className="card__button-add" ref={ref} onClick={() => { setPushed(true) }}>Показать перевод</button></div>)}
+                </div>
+                <button className="slider-container__btn" onClick={nextCardHandler}>next</button>
             </div>
-            <div className="slider-numbers">{number} / {dataLength}</div>
-
-        </div>
+            <div className="slider-numbers">{position + 1} / {data.length}</div>
+        </div >
     )
 }
 
-export default CardSlider;
+export default Gallery;
