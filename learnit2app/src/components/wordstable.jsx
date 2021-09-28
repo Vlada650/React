@@ -4,53 +4,65 @@ import './mainpage.scss';
 export default function WordsTable({ words }) {
     const { english, russian, transcription, unit } = words
     const [isSelected, toggleSelected] = useState(false);
-
     const [isValid, setValid] = useState(true);
 
-    const funcCancel = () => {
-        toggleSelected(false)
-        setValue({ ...words })
-    }
     const [value, setValue] = useState({
         russian: russian,
         english: english,
         transcription: transcription,
         unit: unit,
     });
-    const handleChange = (elem) => {
-        if (value == '') {
+
+    const funcCancel = () => {
+        toggleSelected(false)
+        setValue({ ...words })
+    }
+
+    const funcSave = (e) => {
+        toggleSelected(false)
+        setValue({ [e.target.name]: e.target.value })
+    }
+
+    const funcDelete = () => { }
+
+    const handleChange = (e) => {
+        if (e.target.value == '') {
             setValid(false)
         } else {
             setValid(true)
         }
 
         setValue((prevWord) => {
-            return { ...prevWord, [elem.target.name]: elem.target.value };
+            return { ...prevWord, [e.target.name]: e.target.value };
         });
     };
+    console.log(isValid)
     return (
         <>{isSelected ? (
             <tr className="table" >
                 <td className="table__text">
-                    <input type="text" value={value.english}
-                        onChange={handleChange} className={!isValid && "unvalid"} />
-                </td>
-                <td className="table__text">
-                    <input type="text" value={value.russian}
+                    <input type="text" defaultValue={value.english}
                         onChange={handleChange}
-                        className={!isValid && "unvalid"} />
+                    //className={!isValid && "unvalid"} 
+                    />
                 </td>
                 <td className="table__text">
-                    <input type="text" value={value.transcription}
+                    <input type="text" defaultValue={value.transcription}
+                        onChange={handleChange}
+                    //className={!isValid && "unvalid"} 
+                    />
+                </td>
+                <td className="table__text">
+                    <input type="text" defaultValue={value.russian}
                         onChange={handleChange} />
                 </td>
                 <td className="table__text">
-                    <input type="text" value={value.unit}
+                    <input type="text" defaultValue={value.unit}
                         onChange={handleChange} />
                 </td>
                 <td className="table__button">
                     <button className="table__button-btn" onClick={funcCancel}>Cancel</button>
-                    <button className="table__button-btn">Save</button></td>
+                    <button className="table__button-btn" onClick={funcSave}>Save</button></td>
             </tr>)
             : (
                 <tr className="table" >
@@ -60,7 +72,7 @@ export default function WordsTable({ words }) {
                     <td className="table__text">{unit}</td>
                     <td className="table__button">
                         <button className="table__button-btn" onClick={() => { toggleSelected(true) }}>Edit</button>
-                        <button className="table__button-btn">Delete</button></td>
+                        <button className="table__button-btn" onClick={funcDelete}>Delete</button></td>
                 </tr>)
         }
         </>

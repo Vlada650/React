@@ -5,9 +5,6 @@ import WordsTable from './wordstable'
 const Allwords = ({ words }) => {
 
     const { english, russian, transcription, unit } = words
-
-    //const defaultColumns = ['english', 'russian', 'transcription', 'unit']
-
     return (
         <table>
             <thead>
