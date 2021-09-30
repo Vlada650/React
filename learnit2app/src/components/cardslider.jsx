@@ -24,10 +24,9 @@ const Gallery = ({ data }) => {
         }
     };
 
-    const onHandleChange = () => {
-        if (setPushed(true)) {
-            setLearned(learned + 1)
-        }
+    const btnTranslate = () => {
+        setPushed(true);
+        setLearned(learned + 1);
     }
     return (
         < div className="slider" >
@@ -37,7 +36,7 @@ const Gallery = ({ data }) => {
                     <div className="card__word">{data[position].english}</div>
                     <div className="card__scription">[{data[position].transcription}]</div>{
                         pushed ? (<div className="card__translate">{data[position].russian}</div>)
-                            : (<div className="card__button"><button className="card__button-add" ref={ref} onChange={onHandleChange} onClick={() => { setPushed(true) }}>Показать перевод</button></div>)}
+                            : (<div className="card__button"><button className="card__button-add" ref={ref} onClick={btnTranslate}>Показать перевод</button></div>)}
                 </div>
                 <button className="slider-container__btn" onClick={nextCardHandler}>next</button>
             </div>

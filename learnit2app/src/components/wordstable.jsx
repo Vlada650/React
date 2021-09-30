@@ -18,9 +18,8 @@ export default function WordsTable({ words }) {
         setValue({ ...words })
     }
 
-    const funcSave = (e) => {
+    const funcSave = () => {
         toggleSelected(false)
-        setValue({ [e.target.name]: e.target.value })
     }
 
     const funcDelete = () => { }
@@ -32,32 +31,30 @@ export default function WordsTable({ words }) {
             setValid(true)
         }
 
-        setValue((prevWord) => {
-            return { ...prevWord, [e.target.name]: e.target.value };
-        });
+        setValue({ [e.target.name]: e.target.value });
     };
     console.log(isValid)
     return (
         <>{isSelected ? (
             <tr className="table" >
                 <td className="table__text">
-                    <input type="text" defaultValue={value.english}
+                    <input type="text" value={value.english}
                         onChange={handleChange}
                     //className={!isValid && "unvalid"} 
                     />
                 </td>
                 <td className="table__text">
-                    <input type="text" defaultValue={value.transcription}
+                    <input type="text" value={value.transcription}
                         onChange={handleChange}
                     //className={!isValid && "unvalid"} 
                     />
                 </td>
                 <td className="table__text">
-                    <input type="text" defaultValue={value.russian}
+                    <input type="text" value={value.russian}
                         onChange={handleChange} />
                 </td>
                 <td className="table__text">
-                    <input type="text" defaultValue={value.unit}
+                    <input type="text" value={value.unit}
                         onChange={handleChange} />
                 </td>
                 <td className="table__button">
