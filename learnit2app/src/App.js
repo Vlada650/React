@@ -3,6 +3,7 @@ import Header from './components/header';
 import MainPage from './components/mainpage';
 import Footer from './components/footer';
 import Gallery from './components/cardslider';
+import Login from './components/loginform';
 import './App.css';
 import 'normalize.css';
 import './components/mainpage.scss';
@@ -132,6 +133,9 @@ export default function App() {
       <div className="App">
         <Header words={words} />
         <Switch>
+          <Route exact path="/login">
+            <Login data={words} />
+          </Route>
           <Route exact path="/game">
             <Gallery data={words} />
           </Route>

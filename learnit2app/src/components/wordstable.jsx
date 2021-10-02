@@ -4,8 +4,7 @@ import './mainpage.scss';
 export default function WordsTable({ words }) {
     const { english, russian, transcription, unit } = words
     const [isSelected, toggleSelected] = useState(false);
-    const [isValid, setValid] = useState(true);
-
+    const [error, setError] = useState(false)
     const [value, setValue] = useState({
         russian: russian,
         english: english,
@@ -18,35 +17,34 @@ export default function WordsTable({ words }) {
         setValue({ ...words })
     }
 
-    const funcSave = () => {
-        toggleSelected(false)
-    }
-
     const funcDelete = () => { }
 
     const handleChange = (e) => {
-        if (e.target.value == '') {
-            setValid(false)
-        } else {
-            setValid(true)
-        }
-
         setValue({ [e.target.name]: e.target.value });
     };
-    console.log(isValid)
+
+    const funcSave = (e) => {
+        toggleSelected(false);
+        console.log({ [e.target.name]: e.target.value })
+    }
+
+    const validateFunc = () => {
+        if (value === "") {
+            setError(true)
+        }
+    }
+
+    let nameColor = error === true ? { borderColor: 'red' } : { borderColor: 'green' };
     return (
         <>{isSelected ? (
-            <tr className="table" >
+            <tr className="table" >{error && <span>Заполните все поля!</span>}
                 <td className="table__text">
                     <input type="text" value={value.english}
-                        onChange={handleChange}
-                    //className={!isValid && "unvalid"} 
-                    />
+                        onChange={handleChange} onBlur={validateFunc} style={nameColor} />
                 </td>
                 <td className="table__text">
                     <input type="text" value={value.transcription}
                         onChange={handleChange}
-                    //className={!isValid && "unvalid"} 
                     />
                 </td>
                 <td className="table__text">
@@ -59,7 +57,7 @@ export default function WordsTable({ words }) {
                 </td>
                 <td className="table__button">
                     <button className="table__button-btn" onClick={funcCancel}>Cancel</button>
-                    <button className="table__button-btn" onClick={funcSave}>Save</button></td>
+                    <button className="table__button-btn" disabled={!error} onClick={funcSave}>Save</button></td>
             </tr>)
             : (
                 <tr className="table" >

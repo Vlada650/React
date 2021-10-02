@@ -17,11 +17,14 @@ function List(props) {
         }
     });
 
+    //const nameColor = validateFunc == true ? "red" : "green";style={{ borderColor: nameColor }}
+
     return (
         <div className="mainContainer" >
             <p className="mainContainer-header">Список тем:</p>
             <ol>
                 <li className="mainContainer__list" onClick={() => { setClickVeg(true) }}>Овощи</li>
+
                 {/*clickVeg
                     && (<div className="card__container">
                         <label onClick={() => { setClickVeg(false) }} tabIndex="0" onBlur={() => { setClickVeg(false) }} className="mainContainer-closer">&#215;</label><ListCards array={vegetablesArr} />
