@@ -15,6 +15,7 @@ export default function WordsTable({ words }) {
     const funcCancel = () => {
         toggleSelected(false)
         setValue({ ...words })
+        setError(false)
     }
 
     const funcDelete = () => { }
