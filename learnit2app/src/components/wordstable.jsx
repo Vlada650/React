@@ -28,32 +28,33 @@ export default function WordsTable({ words }) {
         console.log({ [e.target.name]: e.target.value })
     }
 
-    const validateFunc = () => {
-        if (value === "") {
+    const validateFunc = (e) => {
+        if (e.target.value === "") {
             setError(true)
         }
     }
 
     let nameColor = error === true ? { borderColor: 'red' } : { borderColor: 'green' };
-    return (
-        <>{isSelected ? (
-            <tr className="table" >{error && <span>Заполните все поля!</span>}
+    return (<>
+        <div>{error ? <span>Заполните все поля!</span> : ''}</div>
+        {isSelected ? (
+            <tr className="table" >
                 <td className="table__text">
                     <input type="text" value={value.english}
                         onChange={handleChange} onBlur={validateFunc} style={nameColor} />
                 </td>
                 <td className="table__text">
                     <input type="text" value={value.transcription}
-                        onChange={handleChange}
+                        onChange={handleChange} onBlur={validateFunc} style={nameColor}
                     />
                 </td>
                 <td className="table__text">
                     <input type="text" value={value.russian}
-                        onChange={handleChange} />
+                        onChange={handleChange} onBlur={validateFunc} style={nameColor} />
                 </td>
                 <td className="table__text">
                     <input type="text" value={value.unit}
-                        onChange={handleChange} />
+                        onChange={handleChange} onBlur={validateFunc} style={nameColor} />
                 </td>
                 <td className="table__button">
                     <button className="table__button-btn" onClick={funcCancel}>Cancel</button>
@@ -70,6 +71,6 @@ export default function WordsTable({ words }) {
                         <button className="table__button-btn" onClick={funcDelete}>Delete</button></td>
                 </tr>)
         }
-        </>
+    </>
     )
 }
