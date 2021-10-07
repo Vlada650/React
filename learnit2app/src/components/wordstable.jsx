@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import './mainpage.scss';
+import styles from './mainpage.scss';
 
 export default function WordsTable({ words }) {
     const { english, russian, transcription, unit } = words
     const [isSelected, toggleSelected] = useState(false);
-    const [error, setError] = useState(false)
+    const [error, setError] = useState({
+        russian: false,
+        english: false,
+        transcription: false,
+        unit: false,
+    })
     const [value, setValue] = useState({
         russian: russian,
         english: english,
@@ -17,56 +22,64 @@ export default function WordsTable({ words }) {
         setValue({ ...words })
         setError(false)
     }
-
+    const btnDisabled = Object.values(error).some(el => el)
     const funcDelete = () => { }
-
     const handleChange = (e) => {
         setValue({ [e.target.name]: e.target.value });
+        setError({ [e.target.name]: !e.target.value.trim() })
     };
-
-    const funcSave = (e) => {
+    const funcSave = () => {
         toggleSelected(false);
-        console.log({ [e.target.name]: e.target.value })
+        console.log(value)
     }
 
-    const validateFunc = (e) => {
-        if (e.target.value === "") {
-            setError(true)
+    const validateFunc = () => {
+        if (value.english.match(/[А-Яа-яЁё]/gm)) {
+            setError({ english: 'Только латинские буквы' })
+        } else if (value.russian.match(/[A-Za-z]/gm)) {
+            setError({ russian: 'Только русские буквы' })
+        } else {
+            console.log("ok")
         }
     }
 
-    let nameColor = error === true ? { borderColor: 'red' } : { borderColor: 'green' };
     return (<>
-        <div>{error ? <span>Заполните все поля!</span> : ''}</div>
         {isSelected ? (
             <tr className="table" >
                 <td className="table__text">
                     <input type="text" value={value.english}
-                        onChange={handleChange} onBlur={validateFunc} style={nameColor} />
-                </td>
-                <td className="table__text">
-                    <input type="text" value={value.transcription}
-                        onChange={handleChange} onBlur={validateFunc} style={nameColor}
-                    />
+                        onChange={handleChange} onBlur={validateFunc}
+                        className={error.english ? styles.errorinput : " "}
+                    /><span>{error.english && error.english}</span>
                 </td>
                 <td className="table__text">
                     <input type="text" value={value.russian}
-                        onChange={handleChange} onBlur={validateFunc} style={nameColor} />
+                        onChange={handleChange}
+                        className={error.russian ? styles.errorinput : " "}
+                    /> <span>{error.russian && error.russian}</span>
+                </td>
+                <td className="table__text">
+                    <input type="text" value={value.transcription}
+                        onChange={handleChange}
+                        className={error.transcription ? styles.errorinput : " "}
+                    />
                 </td>
                 <td className="table__text">
                     <input type="text" value={value.unit}
-                        onChange={handleChange} onBlur={validateFunc} style={nameColor} />
+                        onChange={handleChange}
+                        className={error.unit ? styles.errorinput : " "}
+                    />
                 </td>
                 <td className="table__button">
                     <button className="table__button-btn" onClick={funcCancel}>Cancel</button>
-                    <button className="table__button-btn" disabled={!error} onClick={funcSave}>Save</button></td>
+                    <button className="table__button-btn" disabled={btnDisabled} onClick={funcSave}>Save</button></td>
             </tr>)
             : (
                 <tr className="table" >
-                    <td className="table__text">{english}</td>
-                    <td className="table__text">[{transcription}]</td>
-                    <td className="table__text">{russian}</td>
-                    <td className="table__text">{unit}</td>
+                    <td className="table__text">{value.english}</td>
+                    <td className="table__text">[{value.transcription}]</td>
+                    <td className="table__text">{value.russian}</td>
+                    <td className="table__text">{value.unit}</td>
                     <td className="table__button">
                         <button className="table__button-btn" onClick={() => { toggleSelected(true) }}>Edit</button>
                         <button className="table__button-btn" onClick={funcDelete}>Delete</button></td>

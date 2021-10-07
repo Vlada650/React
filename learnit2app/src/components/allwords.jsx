@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './mainpage.scss';
 import WordsTable from './wordstable'
 
 const Allwords = ({ words }) => {
 
-    const { english, russian, transcription, unit } = words
+    /*const { data, setData } = useState()
+    useEffect(() => {
+        fetch('/api/words')
+            .then((response) => response.json())
+            .then((response) => setData({ words: response }))
+    },[]);*/
+
+    const { id, english, russian, transcription } = words
     return (
         <table>
             <thead>
@@ -19,7 +26,7 @@ const Allwords = ({ words }) => {
             <tbody>
                 {words.map((words) => {
                     return (
-                        <WordsTable name={words} words={words} />)
+                        <WordsTable key={english} name={words} words={words} />)
                 })}
             </tbody>
         </table>
