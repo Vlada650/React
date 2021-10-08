@@ -4,14 +4,33 @@ import WordsTable from './wordstable'
 
 const Allwords = ({ words }) => {
 
-    /*const { data, setData } = useState()
-    useEffect(() => {
-        fetch('/api/words')
-            .then((response) => response.json())
-            .then((response) => setData({ words: response }))
-    },[]);*/
+    /* const [words, setData] = useState([]);
+     const [isLoading, setIsLoading] = useState(false);
+     const [error, setError] = useState(null)
+ 
+     useEffect(() => {
+         setIsLoading(true);
+         fetch('/api/words')
+             .then(response => {
+                 if (response.ok) {
+                     return response.json();
+                 } else {
+                     throw new Error('Что-то пошло не так');
+                 }
+             })
+             .then((response) => setData({ words: response, isLoading: false }))
+             .catch(error => setData({ error, isLoading: false }));
+     }, []);*/
 
     const { id, english, russian, transcription } = words
+    /*if (isLoading) {
+        return <p className="loading">Loading... Please, wait</p>
+    }
+
+    if (error) {
+        return <p className="loading">Что-то пошло не так</p>
+    }*/
+
     return (
         <table>
             <thead>

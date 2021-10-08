@@ -47,25 +47,25 @@ export default function WordsTable({ words }) {
         {isSelected ? (
             <tr className="table" >
                 <td className="table__text">
-                    <input type="text" value={value.english}
+                    <input type="text" name={'english'} value={value.english}
                         onChange={handleChange} onBlur={validateFunc}
                         className={error.english ? styles.errorinput : " "}
                     /><span>{error.english && error.english}</span>
                 </td>
                 <td className="table__text">
-                    <input type="text" value={value.russian}
+                    <input type="text"  name={'russian'} value={value.russian}
                         onChange={handleChange}
                         className={error.russian ? styles.errorinput : " "}
                     /> <span>{error.russian && error.russian}</span>
                 </td>
                 <td className="table__text">
-                    <input type="text" value={value.transcription}
+                    <input type="text"  name={'transcription'}  value={value.transcription}
                         onChange={handleChange}
                         className={error.transcription ? styles.errorinput : " "}
                     />
                 </td>
                 <td className="table__text">
-                    <input type="text" value={value.unit}
+                    <input type="text"  name={'unit'}  value={value.unit}
                         onChange={handleChange}
                         className={error.unit ? styles.errorinput : " "}
                     />
