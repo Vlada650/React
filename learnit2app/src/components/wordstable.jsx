@@ -1,36 +1,75 @@
 import React, { useState } from "react";
 import styles from './mainpage.scss';
 
-export default function WordsTable({ words }) {
-    const { english, russian, transcription, unit } = words
+export default function WordsTable({ words /*loadWords*/ }) {
+    const { id, english, russian, transcription, tags } = words;
     const [isSelected, toggleSelected] = useState(false);
+
     const [error, setError] = useState({
         russian: false,
         english: false,
         transcription: false,
-        unit: false,
-    })
+        tags: false,
+    });
     const [value, setValue] = useState({
+        id: id,
         russian: russian,
         english: english,
         transcription: transcription,
-        unit: unit,
+        tags: tags,
     });
+
+    const btnDisabled = Object.values(error).some(el => el);
 
     const funcCancel = () => {
         toggleSelected(false)
         setValue({ ...words })
         setError(false)
-    }
-    const btnDisabled = Object.values(error).some(el => el)
-    const funcDelete = () => { }
+    };
+
+    const funcDelete = (id) => {
+        fetch(`/api/words/${id}/delete`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json;charset=utf-8'
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Что-то пошло не так');
+                }
+            })
+        //.then(() => loadWords())
+    };
+
     const handleChange = (e) => {
-        setValue({ [e.target.name]: e.target.value });
-        setError({ [e.target.name]: !e.target.value.trim() })
+        setValue({ ...value, [e.target.name]: e.target.value });
+        setError({ ...error, [e.target.name]: !e.target.value.trim() })
     };
     const funcSave = () => {
         toggleSelected(false);
-        console.log(value)
+        fetch(`/api/words/${id}/update`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                english: value.english,
+                russian: value.russian,
+                transcription: value.transcription,
+                tags: value.tags
+            })
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Что-то пошло не так');
+                }
+            })
+        //.then(() => loadWords())
     }
 
     const validateFunc = () => {
@@ -53,21 +92,21 @@ export default function WordsTable({ words }) {
                     /><span>{error.english && error.english}</span>
                 </td>
                 <td className="table__text">
-                    <input type="text"  name={'russian'} value={value.russian}
-                        onChange={handleChange}
-                        className={error.russian ? styles.errorinput : " "}
-                    /> <span>{error.russian && error.russian}</span>
-                </td>
-                <td className="table__text">
-                    <input type="text"  name={'transcription'}  value={value.transcription}
+                    <input type="text" name={'transcription'} value={value.transcription}
                         onChange={handleChange}
                         className={error.transcription ? styles.errorinput : " "}
                     />
                 </td>
                 <td className="table__text">
-                    <input type="text"  name={'unit'}  value={value.unit}
+                    <input type="text" name={'russian'} value={value.russian}
                         onChange={handleChange}
-                        className={error.unit ? styles.errorinput : " "}
+                        className={error.russian ? styles.errorinput : " "}
+                    /> <span>{error.russian && error.russian}</span>
+                </td>
+                <td className="table__text">
+                    <input type="text" name={'tags'} value={value.tags}
+                        onChange={handleChange}
+                        className={error.tags ? styles.errorinput : " "}
                     />
                 </td>
                 <td className="table__button">
@@ -79,10 +118,10 @@ export default function WordsTable({ words }) {
                     <td className="table__text">{value.english}</td>
                     <td className="table__text">[{value.transcription}]</td>
                     <td className="table__text">{value.russian}</td>
-                    <td className="table__text">{value.unit}</td>
+                    <td className="table__text">{value.tags}</td>
                     <td className="table__button">
                         <button className="table__button-btn" onClick={() => { toggleSelected(true) }}>Edit</button>
-                        <button className="table__button-btn" onClick={funcDelete}>Delete</button></td>
+                        <button className="table__button-btn" onClick={funcDelete(id)}>Delete</button></td>
                 </tr>)
         }
     </>

@@ -3,7 +3,7 @@ import Header from './components/header';
 import MainPage from './components/mainpage';
 import Footer from './components/footer';
 import Gallery from './components/cardslider';
-import Login from './components/unuse-loginform';
+import AddNewWord from './components/addnewword'
 import './App.css';
 import 'normalize.css';
 import './components/mainpage.scss';
@@ -18,112 +18,112 @@ const words = [
     english: "Potato",
     russian: "Картошка",
     transcription: "pəˈteɪtəʊ",
-    unit: "Овощи"
+    tags: "Овощи"
   }, {
     english: "Tomato",
     russian: "Помидор",
     transcription: "təˈmeɪtəʊ",
-    unit: "Овощи"
+    tags: "Овощи"
   }, {
     english: "Carrot",
     russian: "Морковь",
     transcription: "ˈkærət",
-    unit: "Овощи"
+    tags: "Овощи"
   }, {
     english: "Eggplant",
     russian: "Баклажан ",
     transcription: "ˈeɡplænt",
-    unit: "Овощи"
+    tags: "Овощи"
   }, {
     english: "Corn",
     russian: "Кукуруза ",
     transcription: "kɔːrn",
-    unit: "Овощи"
+    tags: "Овощи"
   }, {
     english: "Cucumber ",
     russian: "Огурец ",
     transcription: "ˈkjuːkʌmbər",
-    unit: "Овощи"
+    tags: "Овощи"
   }, {
     english: "Cabbage",
     russian: "Капуста ",
     transcription: "ˈkæbɪdʒ",
-    unit: "Овощи"
+    tags: "Овощи"
   }, {
     english: "Apple",
     russian: "Яблоко",
     transcription: "ˈæpl",
-    unit: "Фрукты"
+    tags: "Фрукты"
   }, {
     english: "Peach",
     russian: "Персик ",
     transcription: "piːtʃ",
-    unit: "Фрукты"
+    tags: "Фрукты"
   }, {
     english: "Pear",
     russian: "Груша ",
     transcription: "per",
-    unit: "Фрукты"
+    tags: "Фрукты"
   }, {
     english: "Pineapple",
     russian: "Ананас ",
     transcription: "ˈpaɪnæpl",
-    unit: "Фрукты"
+    tags: "Фрукты"
   }, {
     english: "Banana",
     russian: "Банан ",
     transcription: "bəˈnænə",
-    unit: "Фрукты"
+    tags: "Фрукты"
   }, {
     english: "T-shirt",
     russian: "Футболка ",
     transcription: "ˈtiːʃərt",
-    unit: "Одежда"
+    tags: "Одежда"
   }, {
     english: "Shorts",
     russian: "Шорты ",
     transcription: "ʃɔːrts",
-    unit: "Одежда"
+    tags: "Одежда"
   }, {
     english: "Pants",
     russian: "Брюки",
     transcription: "pænts",
-    unit: "Одежда"
+    tags: "Одежда"
   }, {
     english: "Dress",
     russian: "Платье ",
     transcription: "dres",
-    unit: "Одежда"
+    tags: "Одежда"
   }, {
     english: "Jacket",
     russian: "Куртка",
     transcription: "ˈdʒækɪt",
-    unit: "Одежда"
+    tags: "Одежда"
   }, {
     english: "Cat",
     russian: "Кот",
     transcription: "kæt",
-    unit: "Животныее"
+    tags: "Животныее"
   }, {
     english: "Dog",
     russian: "Собака",
     transcription: "dɔːɡ",
-    unit: "Животныее"
+    tags: "Животныее"
   }, {
     english: "Parrot",
     russian: "Попугай",
     transcription: "ˈpærət",
-    unit: "Животныее"
+    tags: "Животныее"
   }, {
     english: "Tiger",
     russian: "Тигр",
     transcription: "ˈtaɪɡər",
-    unit: "Животныее"
+    tags: "Животныее"
   }, {
     english: "Lion",
     russian: "Лев",
     transcription: "ˈlaɪən",
-    unit: "Животныее"
+    tags: "Животныее"
   }
 ];
 
@@ -131,10 +131,13 @@ export default function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header words={words} />
+        <Header />
         <Switch>
           <Route exact path="/game">
             <Gallery data={words} />
+          </Route>
+          <Route exact path="/add">
+            <AddNewWord />
           </Route>
           <Route exact path="/">
             <MainPage words={words} />

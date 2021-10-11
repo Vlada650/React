@@ -1,54 +1,59 @@
 import React, { useState, useEffect } from "react";
 import './mainpage.scss';
 import WordsTable from './wordstable'
+import LoadingComponent from "./loadingComponent";
 
 const Allwords = ({ words }) => {
 
-    /* const [words, setData] = useState([]);
-     const [isLoading, setIsLoading] = useState(false);
-     const [error, setError] = useState(null)
- 
-     useEffect(() => {
-         setIsLoading(true);
-         fetch('/api/words')
-             .then(response => {
-                 if (response.ok) {
-                     return response.json();
-                 } else {
-                     throw new Error('Что-то пошло не так');
-                 }
-             })
-             .then((response) => setData({ words: response, isLoading: false }))
-             .catch(error => setData({ error, isLoading: false }));
-     }, []);*/
+    /*const [words, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null)
 
-    const { id, english, russian, transcription } = words
-    /*if (isLoading) {
-        return <p className="loading">Loading... Please, wait</p>
-    }
+    useEffect(() => {
+        setIsLoading(true);
+        loadWords()
+    }, []);
 
-    if (error) {
-        return <p className="loading">Что-то пошло не так</p>
+    const loadWords = () => {
+        fetch('/api/words')
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Что-то пошло не так');
+                }
+            })
+            .then((response) => {
+                setData(response)
+                setIsLoading(false)
+            })
+            .catch(error => {
+                setError(error)
+                setIsLoading(false)
+            });
     }*/
+    const { english, russian, tags } = words
 
     return (
+        //<LoadingComponent isLoading={isLoading} error={error}>
         <table>
             <thead>
                 <tr>
-                    <th className="popup__container-table" id="english">English</th>
-                    <th className="popup__container-table" id="sound">Transcription</th>
-                    <th className="popup__container-table" id="russian">Russian</th>
-                    <th className="popup__container-table" id="unit">Unit</th>
-                    <th className="popup__container-table" id="buttons">Buttons</th>
+                    <th className="popup__container-table" >English</th>
+                    <th className="popup__container-table" >Transcription</th>
+                    <th className="popup__container-table" >Russian</th>
+                    <th className="popup__container-table" >Unit</th>
+                    <th className="popup__container-table" >Buttons</th>
                 </tr>
             </thead>
             <tbody>
                 {words.map((words) => {
                     return (
-                        <WordsTable key={english} name={words} words={words} />)
+                        <WordsTable key={english} words={words} /*key={id} loadWords={loadWords}*/ />)
                 })}
             </tbody>
         </table>
+        //</LoadingComponent>
     )
 }
 export default Allwords;
