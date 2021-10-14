@@ -1,0 +1,43 @@
+$mainColor: rgb(80, 88, 199);
+$fontColor: rgb(255,255,255);
+$detailColor: rgb(247, 133, 177);
+$backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100%);
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: $mainColor;
+    border-bottom: 1px solid white;
+    color: $detailColor;
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+}
+
+.header__promo{
+    font-size: 25px;
+    font-weight: 800;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header__button{
+    color: $mainColor;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: $detailColor;
+    font-weight: 600;
+    line-height: 30px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.header__button:hover {
+    color: #00a;
+    text-decoration: underline;
+}
+
+.header__logo{
+    height: 30px;
+} 

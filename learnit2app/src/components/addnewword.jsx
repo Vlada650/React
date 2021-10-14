@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import styles from './mainpage.scss';
-import LoadingComponent from "./loadingComponent";
+import React, { useState } from "react";
+import './mainpage.scss';
 
-export default function AddNewWord() {
+export default function AddNeWord() {
     const [value, setValue] = useState({
         russian: '',
         english: '',
@@ -10,6 +9,12 @@ export default function AddNewWord() {
         tags: '',
     });
 
+    const [error, setError] = useState({
+        russian: false,
+        english: false,
+        transcription: false,
+        tags: false,
+    });
     const funcCancel = () => {
         setValue({
             russian: '',
@@ -20,7 +25,7 @@ export default function AddNewWord() {
     };
 
     const funcSave = () => {
-        fetch(`/api/words/add`, {
+        fetch('/api/words/add', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json;charset=utf-8'
@@ -39,46 +44,48 @@ export default function AddNewWord() {
                     throw new Error('Что-то пошло не так');
                 }
             })
-        // .then(() => loadWords())
+        // .then(loadWords)
     }
 
-    /* const validateFunc = () => {
-         if (value.english.match(/[А-Яа-яЁё]/gm)) {
-             setError({ english: 'Только латинские буквы' })
-         } else if (value.russian.match(/[A-Za-z]/gm)) {
-             setError({ russian: 'Только русские буквы' })
-         } else {
-             console.log("ok")
-         }
-     }*/
+    const validateFunc = () => {
+        if (value.english.match(/[А-Яа-яЁё]/gm)) {
+            setError({ ...error, english: 'Только латинские буквы' })
+        } else if (value.russian.match(/[A-Za-z]/gm)) {
+            setError({ ...error, russian: 'Только русские буквы' })
+        } else {
+            console.log("ok")
+        }
+    }
     const handleChange = (e) => {
         setValue({ ...value, [e.target.name]: e.target.value });
-        //setError({ ...error, [e.target.name]: !e.target.value.trim() })
+        setError({ ...error, [e.target.name]: !e.target.value.trim() })
     };
 
     return (
-        // <LoadingComponent isLoading={isLoading} error={error}>
         <div className="newword-form">
             <tr className="table" >
                 <td className="table__text">
                     <input type="text" name={'english'} value={value.english}
-                        onChange={handleChange}
+                        onChange={handleChange} onBlur={validateFunc}
+                        className={error.english ? 'errorinput' : " "}
+                    /><span>{error.english && error.english}</span>
+                </td>
+                <td className="table__text">
+                    <input type="text" name={'transcription'} value={value.transcription}
+                        onChange={handleChange} className={error.transcription ? 'errorinput' : " "}
 
                     />
                 </td>
                 <td className="table__text">
-                    <input type="text" name={'transcription'} value={value.transcription}
-                        onChange={handleChange}
-                    />
-                </td>
-                <td className="table__text">
                     <input type="text" name={'russian'} value={value.russian}
-                        onChange={handleChange}
-                    />
+                        onChange={handleChange} onBlur={validateFunc}
+                        className={error.russian ? 'errorinput' : " "}
+                    /> <span>{error.russian && error.russian}</span>
                 </td>
                 <td className="table__text">
                     <input type="text" name={'tags'} value={value.tags}
-                        onChange={handleChange}
+                        onChange={handleChange} className={error.tags ? 'errorinput' : " "}
+
                     />
                 </td>
                 <td className="table__button">
@@ -86,6 +93,5 @@ export default function AddNewWord() {
                     <button className="table__button-btn" onClick={funcSave}>Save</button></td>
             </tr>
         </div >
-        //</LoadingComponent>
     );
 }

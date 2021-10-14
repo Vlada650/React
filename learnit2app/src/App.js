@@ -1,19 +1,9 @@
 import React from 'react';
-import Header from './components/header';
-import MainPage from './components/mainpage';
-import Footer from './components/footer';
-import Gallery from './components/cardslider';
-import AddNewWord from './components/addnewword'
+import MainComponent from './components/mainComponent';
 import './App.css';
 import 'normalize.css';
-import './components/mainpage.scss';
-import {
-  BrowserRouter,
-  Switch,
-  Route
-} from "react-router-dom";
 
-const words = [
+/*const words = [
   {
     english: "Potato",
     russian: "Картошка",
@@ -125,27 +115,10 @@ const words = [
     transcription: "ˈlaɪən",
     tags: "Животныее"
   }
-];
+];*/
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path="/game">
-            <Gallery data={words} />
-          </Route>
-          <Route exact path="/add">
-            <AddNewWord />
-          </Route>
-          <Route exact path="/">
-            <MainPage words={words} />
-          </Route>
-          <Route>Error 404 Page not found</Route>
-        </Switch>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <MainComponent />
   );
 }

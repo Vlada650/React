@@ -7,9 +7,7 @@ body{
     font-family: 'Source Serif Pro', serif;
 }
 
-.logo-img{
-    height: 30px;
-} 
+
 
 .mainContainer{
     padding: 15px 25px;
@@ -46,39 +44,6 @@ body{
     cursor: pointer;
     color: $fontColor;
 } 
-
-.header{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: $mainColor;
-    border-bottom: 1px solid white;
-    color: $detailColor;
-    position: fixed;
-    top: 0; 
-    width: 100%; 
-}
-
-.header__promo{
-    font-size: 25px;
-    font-weight: 800;
-}
-
-.header__popup-shower {
-    color: $mainColor;
-    border-radius: 5px;
-    padding: 5px 10px;
-    background-color: $detailColor;
-    font-weight: 600;
-    line-height: 30px;
-    cursor: pointer;
-    margin-right: 20px;
-}
-
-.header__popup-shower:hover {
-    color: #00a;
-    text-decoration: underline;
-}
 
 .popup__container {
     padding: 2em;
@@ -300,20 +265,6 @@ input {
   opacity: 1;
   transform: scale(1,1);
 } 
-
-.footer__promo{
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.footer{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-top: 1px solid white;
-    color: $detailColor;
-    background-color: $mainColor;
-}
 
 .cardGallery{
     width: 50vw;
