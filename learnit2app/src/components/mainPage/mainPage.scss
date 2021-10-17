@@ -1,0 +1,37 @@
+$mainColor: rgb(80, 88, 199);
+$fontColor: rgb(255,255,255);
+$detailColor: rgb(247, 133, 177);
+$accentColor: rgb(9, 9, 95);
+$backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100%);
+
+.main {
+    padding: 2em;
+    background: $backGradient;
+    overflow: auto;
+    margin-top: 50px;    
+    width: 100%;
+
+   /* &::-webkit-scrollbar {
+        width: 8px;
+        border-radius: 10px;
+        border: 1px solid $fontColor;
+        background-color:$fontColor ;
+        margin-top: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $mainColor;
+        border-radius: 10px;
+        border: 1px solid $fontColor;
+    } */
+}  
+
+.main__container {
+    font-weight: bold;
+	padding: 10px;
+	background: #efefef;
+	border: 1px solid $fontColor;
+    width: 200px;
+    color: $detailColor;
+    font-size: 20px;
+}

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Header from './header/index';
-import MainPage from "./mainPage";
-import Gallery from './cardslider';
+import MainPage from "./mainPage/mainPage";
+import CardSlider from './cardSlider/cardSlider';
 import AddNeWord from './addnewword';
 import Footer from './footer/index';
 import LoadingComponent from "./loadingComponent";
-import ErrorComponent from './errorComponent'
-import './mainpage.scss';
+import ErrorComponent from './errorComponent/errorComponent'
+import './main.scss';
 import {
     BrowserRouter,
     Switch,
@@ -24,8 +24,8 @@ export default function MainComponent() {
         loadWords()
     }, []);
 
-    const loadWords = (id) => {
-        fetch(`/api/words/${id}`, {
+    const loadWords = () => {
+        fetch('/api/words/', {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json;charset=utf-8'
@@ -48,7 +48,7 @@ export default function MainComponent() {
             });
     }
     const { id } = words
-
+    //console.log(words.id)
     return (
         <BrowserRouter>
             <div className="App">
@@ -56,17 +56,16 @@ export default function MainComponent() {
                 <Switch>
                     <LoadingComponent isLoading={isLoading} error={error} >
                         <Route exact path="/game">
-                            <Gallery words={words} key={id} />
+                            <CardSlider words={words} />
                         </Route>
                         <Route exact path="/add">
                             <AddNeWord />
                         </Route>
                         <Route exact path="/">
-                            <MainPage words={words} key={id} loadWords={loadWords} />
+                            <MainPage words={words} id={words.id} loadWords={loadWords} />
                         </Route>
                     </LoadingComponent>
-                    <Route><ErrorComponent /></Route>
-
+                    <Route path="*"><ErrorComponent /></Route>
                 </Switch>
                 <Footer />
             </div>

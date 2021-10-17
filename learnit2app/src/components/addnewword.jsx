@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './mainpage.scss';
+import './main.scss';
 
 export default function AddNeWord() {
     const [value, setValue] = useState({

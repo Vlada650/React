@@ -1,5 +1,5 @@
 import React from "react";
-import './mainpage.scss';
+import './main.scss';
 
 const LoadingComponent = ({ isLoading, error, children }) => {
     if (isLoading) {

@@ -1,0 +1,44 @@
+$mainColor: rgb(80, 88, 199);
+$fontColor: rgb(255,255,255);
+$detailColor: rgb(247, 133, 177);
+$accentColor: rgb(9, 9, 95);
+$backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100%);
+
+input {
+    width: 150px;
+    text-align: center;
+    border: 2px solid $detailColor;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    padding: 2px;
+}
+
+.table__text {
+    border: 1px solid #efefef;
+	padding: 10px 15px 10px;
+    background: $mainColor;
+    color: $fontColor;
+    width: 200px;
+    font-size: 18px;  
+}
+
+.table__button {
+    border: 1px solid #efefef;
+	padding: 10px;
+    background: $mainColor;
+    color: $fontColor;
+    width: 200px;
+    margin: 10px;
+}
+
+.table__button-btn{
+    border: 1px solid $fontColor;
+	padding: 6px;
+    color: $mainColor;
+    background: $detailColor;
+    border-radius: 15px;
+    margin: 0px 15px;
+    width: 70px;
+    cursor: pointer;
+    font-weight: 800;
+}

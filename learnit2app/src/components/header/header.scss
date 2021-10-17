@@ -1,6 +1,7 @@
 $mainColor: rgb(80, 88, 199);
 $fontColor: rgb(255,255,255);
 $detailColor: rgb(247, 133, 177);
+$accentColor: rgb(9, 9, 95);
 $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100%);
 
 .header{
@@ -19,7 +20,7 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
     font-size: 25px;
     font-weight: 800;
     cursor: pointer;
-    text-decoration: none;
+    color: $detailColor;
 }
 
 .header__button{
@@ -31,13 +32,22 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
     line-height: 30px;
     cursor: pointer;
     margin-right: 20px;
-}
 
-.header__button:hover {
-    color: #00a;
-    text-decoration: underline;
-}
+    &:hover {
+        color: $mainColor;
+        text-decoration: underline;
+    }
+} 
 
 .header__logo{
     height: 30px;
 } 
+
+a {
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: underline;
+        color: $detailColor;
+    }
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import './mainpage.scss';
+import './inputForm.scss';
 
 export default function InputForm({ words, loadWords, toggleSelected, setError, setValue, error, value }) {
 
@@ -77,7 +77,7 @@ export default function InputForm({ words, loadWords, toggleSelected, setError, 
             </td>
             <td className="table__button">
                 <button className="table__button-btn" onClick={funcCancel}>Cancel</button>
-                <button className="table__button-btn" disabled={btnDisabled} onClick={funcSave()}>Save</button></td>
+                <button className="table__button-btn" disabled={btnDisabled} onClick={funcSave}>Save</button></td>
         </tr>
     )
 }

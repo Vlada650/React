@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import './mainpage.scss';
-import InputForm from "./inputForm";
+import './wordsTable.scss';
+import InputForm from "../inputForm/inputForm";
 
-export default function WordsTable({ words, key, loadWords }) {
-    const { id, english, russian, transcription, tags } = words;
+export default function WordsTable({ words, id, loadWords }) {
+    const { english, russian, transcription, tags } = words;
     const [isSelected, toggleSelected] = useState(false);
 
     const [error, setError] = useState({
@@ -20,27 +20,30 @@ export default function WordsTable({ words, key, loadWords }) {
         tags: tags,
     });
 
-    /* const funcDelete = (id) => {
-         fetch(`/api/words/${id}/delete`, {
-             method: 'POST',
-             headers: {
-                 'Content-type': 'application/json;charset=utf-8'
-             }
-         })
-             .then(response => {
-                 if (response.ok) {
-                     return response.json();
-                 } else {
-                     throw new Error('Что-то пошло не так');
-                 }
-             })
-         .then(loadWords)
-     };*/
+    const funcDelete = (id) => {
+        console.log('1step')
+        fetch(`/api/words/${id}/delete`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json;charset=utf-8'
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Что-то пошло не так');
+                }
+            })
+            .then(loadWords)
+        console.log('2step')
+
+    };
 
     return (
         <>
             {isSelected ? (<InputForm
-                words={words} key={key}
+                words={words} id={id}
                 loadWords={loadWords}
                 toggleSelected={toggleSelected}
                 setError={setError} error={error}
@@ -52,7 +55,7 @@ export default function WordsTable({ words, key, loadWords }) {
                     <td className="table__text">{value.tags}</td>
                     <td className="table__button">
                         <button className="table__button-btn" onClick={() => { toggleSelected(true) }}>Edit</button>
-                        <button className="table__button-btn" /*onClick={funcDelete(id)}*/>Delete</button></td>
+                        <button className="table__button-btn" onClick={funcDelete}>Delete</button></td>
                 </tr>)}
         </>
     )

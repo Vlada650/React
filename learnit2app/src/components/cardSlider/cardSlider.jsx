@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import './mainpage.scss';
+import './cardSlider.scss';
 
-const Gallery = ({ data }) => {
-
+const CardSlider = ({ words }) => {
     const [position, setPosition] = useState(0)
     const [pushed, setPushed] = useState(false);
     const [learned, setLearned] = useState(0)
@@ -16,7 +15,7 @@ const Gallery = ({ data }) => {
     };
 
     const nextCardHandler = () => {
-        if (position >= data.length - 1) {
+        if (position >= words.length - 1) {
             setPosition(0)
         } else {
             setPosition(position + 1)
@@ -33,17 +32,17 @@ const Gallery = ({ data }) => {
             <div className="slider-container">
                 <button className="slider-container__btn" onClick={prevCardHandler}>prev</button>
                 <div className="card">
-                    <div className="card__word">{data[position].english}</div>
-                    <div className="card__scription">[{data[position].transcription}]</div>{
-                        pushed ? (<div className="card__translate">{data[position].russian}</div>)
+                    <div className="card__word">{words[position].english}</div>
+                    <div className="card__scription">[{words[position].transcription}]</div>{
+                        pushed ? (<div className="card__translate">{words[position].russian}</div>)
                             : (<div className="card__button"><button className="card__button-add" ref={ref} onClick={btnTranslate}>Показать перевод</button></div>)}
                 </div>
                 <button className="slider-container__btn" onClick={nextCardHandler}>next</button>
             </div>
-            <div className="slider-numbers">{position + 1} / {data.length}</div>
+            <div className="slider-numbers">{position + 1} / {words.length}</div>
             <div className="slider-numbers">Изучено слов: {learned}</div>
         </div >
     )
 }
 
-export default Gallery;
+export default CardSlider;
