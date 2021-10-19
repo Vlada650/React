@@ -1,25 +1,49 @@
-$mainColor: rgb(90, 98, 197);
-$fontColor: rgb(255,255,255);
+$mainColor: rgb(80, 88, 199);
+$fontColor: #efefef;
 $detailColor: rgb(247, 133, 177);
 $accentColor: rgb(9, 9, 95);
 $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100%);
 
+
+.newword-form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+    flex-direction: column;
+    background-color: rgba(85,157,210,1);
+}
+ 
+.newword-promo{
+    font-size: 24px;  
+    font-weight: 800;
+    padding-top: 15px;
+    color:$accentColor;
+}
+
+.newword-table{
+    display: flex;
+    align-items: center;
+}
+
 .table__text {
     border: 1px solid #efefef;
-	padding: 10px 15px 10px;
-    background: $fontColor;
-    color: $mainColor;
+    background: $mainColor;
+    color: $fontColor;
     width: 200px;
     font-size: 18px;  
+    height: 45px;
+    margin: 1px;
 }
 
 .table__button {
     border: 1px solid #efefef;
 	padding: 10px;
     background: $mainColor;
-    color: $mainColor;
+    color: $fontColor;
     width: 200px;
     margin: 10px;
+    height: 45px;
 }
 
 .table__button-btn{
@@ -33,3 +57,7 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
     cursor: pointer;
     font-weight: 800;
 }
+
+.errorinput{
+    border: 2px solid red;
+}   

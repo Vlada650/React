@@ -15,6 +15,8 @@ export default function InputForm({ words, loadWords, toggleSelected, setError, 
             setError({ ...error, english: 'Только латинские буквы' })
         } else if (value.russian.match(/[A-Za-z]/gm)) {
             setError({ ...error, russian: 'Только русские буквы' })
+        } else if (value.transcription.match(/[А-Яа-яЁё]/gm)) {
+            setError({ ...error, transcription: 'Только латинские буквы' })
         } else {
             console.log("ok")
         }
@@ -55,19 +57,19 @@ export default function InputForm({ words, loadWords, toggleSelected, setError, 
                 <input type="text" name={'english'} value={value.english}
                     onChange={handleChange} onBlur={validateFunc}
                     className={error.english ? 'errorinput' : " "}
-                /><span>{error.english && error.english}</span>
+                /><span><br />{error.english && error.english}</span>
             </td>
             <td className="table__text">
                 <input type="text" name={'transcription'} value={value.transcription}
-                    onChange={handleChange}
+                    onChange={handleChange} onBlur={validateFunc}
                     className={error.transcription ? 'errorinput' : " "}
-                />
+                /><span><br />{error.transcription && error.transcription}</span>
             </td>
             <td className="table__text">
                 <input type="text" name={'russian'} value={value.russian}
                     onChange={handleChange} onBlur={validateFunc}
                     className={error.russian ? 'errorinput' : " "}
-                /> <span>{error.russian && error.russian}</span>
+                /> <span><br />{error.russian && error.russian}</span>
             </td>
             <td className="table__text">
                 <input type="text" name={'tags'} value={value.tags}

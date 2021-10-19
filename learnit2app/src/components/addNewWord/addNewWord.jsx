@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import './main.scss';
+import './addNewWord.scss';
 
-export default function AddNeWord() {
+export default function AddNewWord({ loadWords }) {
     const [value, setValue] = useState({
         russian: '',
         english: '',
@@ -12,8 +12,7 @@ export default function AddNeWord() {
     const [error, setError] = useState({
         russian: false,
         english: false,
-        transcription: false,
-        tags: false,
+        transcription: false
     });
     const funcCancel = () => {
         setValue({
@@ -21,7 +20,12 @@ export default function AddNeWord() {
             english: '',
             transcription: '',
             tags: '',
-        })
+        });
+        setError({
+            russian: '',
+            english: '',
+            transcription: ''
+        });
     };
 
     const funcSave = () => {
@@ -44,7 +48,8 @@ export default function AddNeWord() {
                     throw new Error('Что-то пошло не так');
                 }
             })
-        // .then(loadWords)
+        loadWords()
+        funcCancel()
     }
 
     const validateFunc = () => {
@@ -52,8 +57,10 @@ export default function AddNeWord() {
             setError({ ...error, english: 'Только латинские буквы' })
         } else if (value.russian.match(/[A-Za-z]/gm)) {
             setError({ ...error, russian: 'Только русские буквы' })
+        } else if (value.transcription.match(/[А-Яа-яЁё]/gm)) {
+            setError({ ...error, transcription: 'Только латинские буквы' })
         } else {
-            console.log("ok")
+            setError('')
         }
     }
     const handleChange = (e) => {
@@ -63,27 +70,27 @@ export default function AddNeWord() {
 
     return (
         <div className="newword-form">
-            <tr className="table" >
+            <div className="newword-promo">Добавь своё слово:</div>
+            <tr className="newword-table" >
                 <td className="table__text">
                     <input type="text" name={'english'} value={value.english}
                         onChange={handleChange} onBlur={validateFunc}
-                        className={error.english ? 'errorinput' : " "}
-                    /><span>{error.english && error.english}</span>
+                        className={error.english ? 'errorinput' : " "} placeholder="Слово"
+                    /><span><br />{error.english && error.english}</span>
                 </td>
                 <td className="table__text">
-                    <input type="text" name={'transcription'} value={value.transcription}
-                        onChange={handleChange} className={error.transcription ? 'errorinput' : " "}
-
-                    />
+                    <input type="text" name={'transcription'} value={value.transcription} onBlur={validateFunc}
+                        onChange={handleChange} className={error.transcription ? 'errorinput' : " "} placeholder="Транскрипция"
+                    /><span><br />{error.transcription && error.transcription}</span>
                 </td>
                 <td className="table__text">
                     <input type="text" name={'russian'} value={value.russian}
-                        onChange={handleChange} onBlur={validateFunc}
+                        onChange={handleChange} onBlur={validateFunc} placeholder="Перевод"
                         className={error.russian ? 'errorinput' : " "}
-                    /> <span>{error.russian && error.russian}</span>
+                    /> <span><br />{error.russian && error.russian}</span>
                 </td>
                 <td className="table__text">
-                    <input type="text" name={'tags'} value={value.tags}
+                    <input type="text" name={'tags'} value={value.tags} placeholder="Теги"
                         onChange={handleChange} className={error.tags ? 'errorinput' : " "}
 
                     />

@@ -50,7 +50,7 @@ export default function WordsTable({ words, id, loadWords }) {
                 setValue={setValue} value={value} />)
                 : (<tr className="table" >
                     <td className="table__text">{value.english}</td>
-                    <td className="table__text">[{value.transcription}]</td>
+                    <td className="table__text">{value.transcription}</td>
                     <td className="table__text">{value.russian}</td>
                     <td className="table__text">{value.tags}</td>
                     <td className="table__button">

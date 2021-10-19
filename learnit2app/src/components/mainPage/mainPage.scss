@@ -2,13 +2,12 @@ $mainColor: rgb(80, 88, 199);
 $fontColor: rgb(255,255,255);
 $detailColor: rgb(247, 133, 177);
 $accentColor: rgb(9, 9, 95);
-$backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100%);
+$backGradient: linear-gradient(4deg, rgb(245,129,178) 1%, rgba(85,157,210,1) 100%);
 
 .main {
     padding: 2em;
     background: $backGradient;
     overflow: auto;
-    margin-top: 50px;    
     width: 100%;
 
    /* &::-webkit-scrollbar {
@@ -32,6 +31,6 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
 	background: #efefef;
 	border: 1px solid $fontColor;
     width: 200px;
-    color: $detailColor;
+    color: $accentColor;
     font-size: 20px;
 }

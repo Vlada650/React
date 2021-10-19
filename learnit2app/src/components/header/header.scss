@@ -19,7 +19,7 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
 .header__promo{
     font-size: 25px;
     font-weight: 800;
-    cursor: pointer;
+   // cursor: pointer;
     color: $detailColor;
 }
 
@@ -34,7 +34,7 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
     margin-right: 20px;
 
     &:hover {
-        color: $mainColor;
+        color: $accentColor;
         text-decoration: underline;
     }
 } 

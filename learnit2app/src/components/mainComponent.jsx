@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Header from './header/index';
 import MainPage from "./mainPage/mainPage";
 import CardSlider from './cardSlider/cardSlider';
-import AddNeWord from './addnewword';
 import Footer from './footer/index';
-import LoadingComponent from "./loadingComponent";
+import LoadingComponent from "./loadingComponent/loadingComponent";
 import ErrorComponent from './errorComponent/errorComponent'
-import './main.scss';
 import {
     BrowserRouter,
     Switch,
@@ -54,12 +52,9 @@ export default function MainComponent() {
             <div className="App">
                 <Header />
                 <Switch>
-                    <LoadingComponent isLoading={isLoading} error={error} >
+                    <LoadingComponent isLoading={isLoading} error={error} words={words}>
                         <Route exact path="/game">
                             <CardSlider words={words} />
-                        </Route>
-                        <Route exact path="/add">
-                            <AddNeWord />
                         </Route>
                         <Route exact path="/">
                             <MainPage words={words} id={words.id} loadWords={loadWords} />

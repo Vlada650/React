@@ -1,7 +1,7 @@
 import React from "react";
-import './main.scss';
+import './loadingComponent.scss';
 
-const LoadingComponent = ({ isLoading, error, children }) => {
+const LoadingComponent = ({ isLoading, error, children, words }) => {
     if (isLoading) {
         return <p className="loading">Loading... Please, wait</p>
     }

@@ -33,7 +33,7 @@ const CardSlider = ({ words }) => {
                 <button className="slider-container__btn" onClick={prevCardHandler}>prev</button>
                 <div className="card">
                     <div className="card__word">{words[position].english}</div>
-                    <div className="card__scription">[{words[position].transcription}]</div>{
+                    <div className="card__scription">{words[position].transcription}</div>{
                         pushed ? (<div className="card__translate">{words[position].russian}</div>)
                             : (<div className="card__button"><button className="card__button-add" ref={ref} onClick={btnTranslate}>Показать перевод</button></div>)}
                 </div>
