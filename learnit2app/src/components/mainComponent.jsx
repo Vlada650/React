@@ -46,7 +46,7 @@ export default function MainComponent() {
             });
     }
     const { id } = words
-    //console.log(words.id)
+
     return (
         <BrowserRouter>
             <div className="App">
@@ -57,7 +57,7 @@ export default function MainComponent() {
                             <CardSlider words={words} />
                         </Route>
                         <Route exact path="/">
-                            <MainPage words={words} id={words.id} loadWords={loadWords} />
+                            <MainPage words={words} id={id} loadWords={loadWords} />
                         </Route>
                     </LoadingComponent>
                     <Route path="*"><ErrorComponent /></Route>

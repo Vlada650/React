@@ -8,7 +8,7 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: $mainColor;
+    background-color: $detailColor;
     border-bottom: 1px solid white;
     color: $detailColor;
     position: fixed;
@@ -20,7 +20,7 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
     font-size: 25px;
     font-weight: 800;
    // cursor: pointer;
-    color: $detailColor;
+    color: $mainColor;
 }
 
 .header__button{

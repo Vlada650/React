@@ -1,7 +1,7 @@
 import React from "react";
 import './inputForm.scss';
 
-export default function InputForm({ words, loadWords, toggleSelected, setError, setValue, error, value }) {
+export default function InputForm({ id, words, loadWords, toggleSelected, setError, setValue, error, value }) {
 
     const btnDisabled = Object.values(error).some(el => el);
 
@@ -28,7 +28,7 @@ export default function InputForm({ words, loadWords, toggleSelected, setError, 
         setError(false)
     };
 
-    const funcSave = (id) => {
+    const funcSave = () => {
         toggleSelected(false);
         fetch(`/api/words/${id}/update`, {
             method: 'POST',

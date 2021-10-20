@@ -2,7 +2,7 @@ import React from "react";
 import './loadingComponent.scss';
 
 const LoadingComponent = ({ isLoading, error, children, words }) => {
-    if (isLoading) {
+    if (isLoading || !words.length) {
         return <p className="loading">Loading... Please, wait</p>
     }
 
