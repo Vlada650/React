@@ -7,7 +7,7 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
 .slider{
     height: 75vh;
     padding-top: 20vh;
-    background-color: $mainColor;
+    background-color: rgb(174, 215, 248);
 }
 
 .slider-container{
@@ -17,11 +17,11 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
 }
 
 .slider-container__btn{
-    color: $accentColor;
+    color: rgb(22, 58, 94);
     height: 35px;
     border-radius: 25px;
     padding: 15px;
-    background-color: rgba(245, 131, 184);
+    background-color: rgb(2, 199, 156);
     font-weight: 600;
     transition: all 0.5s;
     line-height: 14px;
@@ -32,7 +32,7 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
 }
 
 .slider-numbers{
-    color: $fontColor;
+    color: rgb(22, 58, 94);
     font-size: 24px;
     font-weight: 700;
     display: flex;
@@ -43,14 +43,14 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
 width: 200px;
 height: 250px;
 padding: 35px 20px;
-background: $backGradient;
+background: rgb(22, 58, 94);
 border: 2px solid white;
 border-radius: 10px;
 margin: 10px;
 }
 
 .card__word{
-color: $accentColor;
+color: rgb(174, 215, 248);
 font-size:40px;
 font-weight: 700;
 padding: 20px;
@@ -65,7 +65,7 @@ font-weight: 600;
 padding: 20px;
 display: flex;
 justify-content: center;
-color: $mainColor;
+color: rgb(174, 215, 248);
 font-size: 20px;
 }
 
@@ -75,7 +75,7 @@ font-weight: bold;
 display: flex;
 justify-content: center;  
 margin-top: 40px;
-color: $accentColor;
+color: rgb(2, 199, 156);
 font-size: 30px;
 }
   
@@ -85,10 +85,10 @@ font-size: 30px;
 }
 
 .card__button-add {
-    color: $accentColor;
+    color: rgb(22, 58, 94);
     border-radius: 10px;
     padding: 15px;
-    background-color: rgba(245, 131, 184);
+    background-color: rgb(2, 199, 156);
     font-weight: 600;
     transition: all 0.5s;
     position: relative;

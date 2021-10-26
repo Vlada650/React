@@ -79,6 +79,30 @@ const hasJsxRuntime = (() => {
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: path.join(__dirname, "/dist"),
+    filename: "index_bundle.js"
+  },
+  module: {
+    loader: [
+      {
+        test: /\.js|\.jsx$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
+  }
+};
+
 module.exports = function (webpackEnv) {
   const isEnvDevelopment = webpackEnv === 'development';
   const isEnvProduction = webpackEnv === 'production';

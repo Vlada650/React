@@ -8,9 +8,8 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background:  linear-gradient(90deg, rgba(118,118,120,1) 0%, rgba(85,157,210,1) 100%) ;
+    background-color: rgb(22, 58, 94);
     border-bottom: 1px solid white;
-    color: $detailColor;
     position: fixed;
     top: 0; 
     width: 100%; 
@@ -19,22 +18,21 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
 .header__promo{
     font-size: 25px;
     font-weight: 800;
-   // cursor: pointer;
-    color: $accentColor;
+    color: rgb(174, 215, 248);
 }
 
 .header__button{
-    color: $accentColor;
+    border: 1px solid white;
+    color: rgb(22, 58, 94);
     border-radius: 5px;
     padding: 5px 10px;
-    background-color: $fontColor;
+    background-color: rgb(2, 199, 156);
     font-weight: 600;
     line-height: 30px;
     cursor: pointer;
     margin-right: 20px;
 
     &:hover {
-       // color: $accentColor;
         text-decoration: underline;
     }
 } 
@@ -42,12 +40,3 @@ $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100
 .header__logo{
     height: 30px;
 } 
-
-a {
-    text-decoration: none;
-
-    &:hover{
-        text-decoration: underline;
-        color: $detailColor;
-    }
-}

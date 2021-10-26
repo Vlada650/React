@@ -4,10 +4,23 @@ $detailColor: rgb(247, 133, 177);
 $accentColor: rgb(9, 9, 95);
 $backGradient: linear-gradient(4deg, rgba(85,157,210,1) 1%, rgb(245,129,178) 100%);
 
-
-
 .loading{
-    margin: 230px;
-    text-align: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;   
+ flex-direction: column;
+ height: 100vh;
+ background-color: rgb(174, 215, 248);
 }
 
+.loading__promo{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgb(22, 58, 94);
+}
+
+.loading__img{
+    margin-top: 100px;
+    text-align: center;
+}

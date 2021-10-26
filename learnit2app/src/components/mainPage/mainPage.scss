@@ -6,31 +6,17 @@ $backGradient: linear-gradient(4deg, rgb(245,129,178) 1%, rgba(85,157,210,1) 100
 
 .main {
     padding: 2em;
-    background: rgba(85,157,210,1);
+    background: rgb(130, 210, 224);
     overflow: auto;
     width: 100%;
-
-   /* &::-webkit-scrollbar {
-        width: 8px;
-        border-radius: 10px;
-        border: 1px solid $fontColor;
-        background-color:$fontColor ;
-        margin-top: 5px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: $mainColor;
-        border-radius: 10px;
-        border: 1px solid $fontColor;
-    } */
 }  
 
 .main__container {
     font-weight: bold;
 	padding: 10px;
-	background: rgb(128, 125, 126);
-	border: 1px solid $fontColor;
+	background: rgb(174, 215, 248);
+	border: 1px solid rgb(22, 58, 94);
     width: 200px;
-    color: $accentColor;
+    color: rgb(22, 58, 94);
     font-size: 20px;
 }
