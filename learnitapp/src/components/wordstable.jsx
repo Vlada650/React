@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import './wordsTable.scss';
-import InputForm from "../inputForm/inputForm";
+import InputForm from "./inputForm";
 
-export default function WordsTable({ words, loadWords }) {
+export default function WordsTable({ words, loadWords, setIsLoading }) {
     const { english, russian, transcription, tags, id } = words;
     const [isSelected, toggleSelected] = useState(false);
 
@@ -21,7 +20,7 @@ export default function WordsTable({ words, loadWords }) {
     });
 
     const funcDelete = () => {
-        console.log('1step')
+        setIsLoading(true)
         fetch(`/api/words/${id}/delete`, {
             method: 'POST',
             headers: {
@@ -36,8 +35,7 @@ export default function WordsTable({ words, loadWords }) {
                 }
             })
             .then(loadWords)
-        console.log('2step')
-
+            setIsLoading(false)
     };
 
     return (

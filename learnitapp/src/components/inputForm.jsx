@@ -1,5 +1,5 @@
 import React from "react";
-import './inputForm.scss';
+//import './inputForm.scss';
 
 export default function InputForm({ id, words, loadWords, toggleSelected, setError, setValue, error, value }) {
 

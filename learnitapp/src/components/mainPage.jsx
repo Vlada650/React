@@ -1,8 +1,7 @@
 import React from "react";
-import './mainPage.scss';
-import WordsTable from '../wordsTable/wordstable'
-import AddNewWord from "../addNewWord/addNewWord";
-const MainPage = ({ words, id, loadWords }) => {
+import WordsTable from './wordstable'
+import AddNewWord from "./addNewWord";
+const MainPage = ({ words, id, loadWords,  setIsLoading }) => {
     return (
         <>
             <AddNewWord loadWords={loadWords} />
@@ -19,7 +18,7 @@ const MainPage = ({ words, id, loadWords }) => {
                 <tbody>
                     {words.map((words) => {
                         return (
-                            <WordsTable words={words} id={id} loadWords={loadWords} />)
+                            <WordsTable words={words} id={id}  setIsLoading={setIsLoading} loadWords={loadWords} />)
                     })}
                 </tbody>
             </table>

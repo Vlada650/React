@@ -1,24 +1,29 @@
-/*import {action, observable} from 'mobx'
+/*import {action, makeObservable, observable} from 'mobx'
 
 class cardSliderStore{
-    constructor (){
-        this.state = {
-            position: 0,
-        }
-    }
-    @observable position = 0;
+    position
 
-    @action prevCardHandler  = (position) => {
+    constructor (){
+        makeObservable (
+            this, {
+                position: observable,
+                prevCardHandler: action,
+                nextCardHandler: action,
+            })
+        this.position = 0
+    } 
+
+     prevCardHandler  = (position) => {
         if (position > 0) {
             return position = position - 1
         }
     }
 
-    @action nextCardHandler = () => {
-        if (position >= words.length - 1) {
-            position = 0
+     nextCardHandler = () => {
+        if (this.position >= words.length - 1) {
+            this.position = 0
         } else {
-            position = position + 1
+            this.position = position + 1
         }
     };
 }

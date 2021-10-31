@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import './addNewWord.scss';
 
 export default function AddNewWord({ loadWords }) {
     const [value, setValue] = useState({

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Header from './header/index';
-import MainPage from "./mainPage/mainPage";
-import CardSlider from './cardSlider/cardSlider';
-import Footer from './footer/index';
-import LoadingComponent from "./loadingComponent/loadingComponent";
-import ErrorComponent from './errorComponent/errorComponent'
+import Header from './header';
+import MainPage from "./mainPage";
+import CardSlider from './cardSlider';
+import Footer from './footer';
+import LoadingComponent from "./loadingComponent";
+import ErrorComponent from './errorComponent'
 import {
     BrowserRouter,
     Switch,
@@ -57,7 +57,7 @@ export default function MainComponent() {
                             <CardSlider words={words} />
                         </Route>
                         <Route exact path="/">
-                            <MainPage words={words} id={id} loadWords={loadWords} />
+                            <MainPage words={words} id={id}  setIsLoading={setIsLoading} loadWords={loadWords} />
                         </Route>
                     </LoadingComponent>
                     <Route path="*"><ErrorComponent /></Route>

@@ -1,0 +1,15 @@
+.error-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	background-color: rgb(174, 215, 248);
+}
+
+.error-container__message_link {
+	text-align: center;
+	font-size: 24px;
+	font-weight: 700;
+	color: rgb(22, 58, 94);
+}
