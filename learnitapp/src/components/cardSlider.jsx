@@ -2,12 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import cardSliderStore from "../stores/cardSliderStore";
 import {observer, inject} from "mobx-react";
 
-const CardSlider = () => {
-    return(
-        <div></div>
-    )
-}
-/*const CardSlider =  inject(['cardSliderStore'])(observer(({ cardSliderStore }) => {
+
+const CardSlider =  inject(['cardSliderStore'])(observer(({ cardSliderStore }) => {
     
     const ref = useRef();
     useEffect(() => ref.current.focus(), []);
@@ -34,7 +30,7 @@ const CardSlider = () => {
     const btnTranslate = () => {
         setPushed(true);
         setLearned(learned + 1);
-    }*
+    }*/
     return (
         < div className="slider" >
             <div className="slider-container">
@@ -51,5 +47,5 @@ const CardSlider = () => {
             <div className="slider-numbers">Изучено слов: {cardSliderStore.learned}</div>
         </div >
     )
-}))*/
+}))
 export default CardSlider;
