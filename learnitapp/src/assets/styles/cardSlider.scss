@@ -1,7 +1,7 @@
 .slider {
 	height: 75vh;
 	padding-top: 20vh;
-	background-color: rgb(174, 215, 248);
+	background-color: $lightBackground;
 }
 
 .slider-container {
@@ -11,11 +11,11 @@
 }
 
 .slider-container__btn {
-	color: rgb(22, 58, 94);
+	color: $darkBackground;
 	height: 35px;
 	border-radius: 25px;
 	padding: 15px;
-	background-color: rgb(2, 199, 156);
+	background-color: $accentColor;
 	font-weight: 600;
 	transition: all 0.5s;
 	line-height: 14px;
@@ -26,7 +26,7 @@
 }
 
 .slider-numbers {
-	color: rgb(22, 58, 94);
+	color: $darkBackground;
 	font-size: 24px;
 	font-weight: 700;
 	display: flex;
@@ -37,14 +37,14 @@
 	width: 200px;
 	height: 250px;
 	padding: 35px 20px;
-	background: rgb(22, 58, 94);
-	border: 2px solid white;
+	background: $darkBackground;
+	border: 2px solid $inputColor;
 	border-radius: 10px;
 	margin: 10px;
 }
 
 .card__word {
-	color: rgb(174, 215, 248);
+	color: $lightBackground;
 	font-size: 40px;
 	font-weight: 700;
 	padding: 20px;
@@ -59,7 +59,7 @@
 	padding: 20px;
 	display: flex;
 	justify-content: center;
-	color: rgb(174, 215, 248);
+	color: $lightBackground;
 	font-size: 20px;
 }
 
@@ -69,7 +69,7 @@
 	display: flex;
 	justify-content: center;
 	margin-top: 40px;
-	color: rgb(2, 199, 156);
+	color: $accentColor;
 	font-size: 30px;
 }
 
@@ -79,10 +79,10 @@
 }
 
 .card__button-add {
-	color: rgb(22, 58, 94);
+	color: $darkBackground;
 	border-radius: 10px;
 	padding: 15px;
-	background-color: rgb(2, 199, 156);
+	background-color: $accentColor;
 	font-weight: 600;
 	transition: all 0.5s;
 	position: relative;
@@ -116,7 +116,7 @@
 	z-index: 1;
 	opacity: 0;
 	transition: all 0.3s;
-	border: 1px solid red;
+	border: 1px solid $accentColor;
 	transform: scale(1.2, 1.2);
 }
 .card__button-add:hover::after {

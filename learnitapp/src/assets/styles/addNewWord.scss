@@ -4,45 +4,43 @@
 	align-items: center;
 	margin-top: 60px;
 	flex-direction: column;
-	background-color: rgb(130, 210, 224);
+	background-color: $lightBackground;
 }
 
 .newword-promo {
 	font-size: 24px;
 	font-weight: 800;
-	padding-top: 25px;
-	color: rgb(22, 58, 94);
+	padding: 25px 0px 10px;
+	color: $darkBackground;
 }
 
 .newword-table {
 	display: flex;
 	align-items: center;
-	border: 1px solid rgb(22, 58, 94);
 	border-radius: 50px;
-	background-color: rgb(22, 58, 94);
+	background-color: $darkBackground;
 	padding: 0px 10px;
 	margin: 5px;
 }
 
 .addtable__text {
-	color: white;
+	color: $inputColor;
 	width: 200px;
 	font-size: 18px;
 	height: 45px;
-	margin: 1px;
+	margin-left: 10px;
 }
 
 .addtable__button {
-	padding: 5px;
 	margin: 10px;
 	height: 45px;
 }
 
 .addtable__button-btn {
-	border: 1px solid white;
+	border: 1px solid $inputColor;
 	padding: 6px;
-	color: rgb(22, 58, 94);
-	background: rgb(2, 199, 156);
+	color: $darkBackground;
+	background: $accentColor;
 	border-radius: 15px;
 	margin: 0px 3px;
 	width: 70px;
@@ -51,9 +49,5 @@
 }
 
 .errorinput {
-	border: 2px solid red;
-}
-
-input {
-	border: 2px solid rgb(120, 170, 179);
+	border: 2px solid $errorColor;
 }

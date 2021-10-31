@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import cardSliderStore from "../stores/cardSliderStore";
 import {observer, inject} from "mobx-react";
 
-
-const CardSlider =  inject(['cardSliderStore'])(observer(({ cardSliderStore }) => {
+const CardSlider =  inject(['cardSliderStore'])(observer(({ cardSliderStore, words }) => {
     
     const ref = useRef();
     useEffect(() => ref.current.focus(), []);
@@ -48,4 +46,5 @@ const CardSlider =  inject(['cardSliderStore'])(observer(({ cardSliderStore }) =
         </div >
     )
 }))
+
 export default CardSlider;

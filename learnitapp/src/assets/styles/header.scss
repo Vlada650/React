@@ -12,7 +12,7 @@
 .header__promo {
 	font-size: 25px;
 	font-weight: 800;
-	color: rgb(174, 215, 248);
+	color: $lightBackground;
 }
 
 .header__button {
@@ -20,7 +20,7 @@
 	color: $darkBackground;
 	border-radius: 5px;
 	padding: 5px 10px;
-	background-color: rgb(2, 199, 156);
+	background-color: $accentColor;
 	font-weight: 600;
 	line-height: 30px;
 	cursor: pointer;

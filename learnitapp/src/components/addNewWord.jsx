@@ -71,32 +71,32 @@ export default function AddNewWord({ loadWords }) {
         <div className="newword-form">
             <div className="newword-promo">Добавь своё слово:</div>
             <tr className="newword-table" >
-                <td className="table__text">
+                <td className="addtable__text">
                     <input type="text" name={'english'} value={value.english}
                         onChange={handleChange} onBlur={validateFunc}
                         className={error.english ? 'errorinput' : " "} placeholder="Слово"
                     /><span><br />{error.english && error.english}</span>
                 </td>
-                <td className="table__text">
+                <td className="addtable__text">
                     <input type="text" name={'transcription'} value={value.transcription} onBlur={validateFunc}
                         onChange={handleChange} className={error.transcription ? 'errorinput' : " "} placeholder="Транскрипция"
                     /><span><br />{error.transcription && error.transcription}</span>
                 </td>
-                <td className="table__text">
+                <td className="addtable__text">
                     <input type="text" name={'russian'} value={value.russian}
                         onChange={handleChange} onBlur={validateFunc} placeholder="Перевод"
                         className={error.russian ? 'errorinput' : " "}
                     /> <span><br />{error.russian && error.russian}</span>
                 </td>
-                <td className="table__text">
+                <td className="addtable__text">
                     <input type="text" name={'tags'} value={value.tags} placeholder="Теги"
                         onChange={handleChange} className={error.tags ? 'errorinput' : " "}
 
                     />
                 </td>
-                <td className="table__button">
-                    <button className="table__button-btn" onClick={funcCancel}>Cancel</button>
-                    <button className="table__button-btn" onClick={funcSave}>Save</button></td>
+                <td className="addtable__button">
+                    <button className="addtable__button-btn" onClick={funcCancel}>Cancel</button>
+                    <button className="addtable__button-btn" onClick={funcSave}>Save</button></td>
             </tr>
         </div >
     );

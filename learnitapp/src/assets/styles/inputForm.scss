@@ -7,26 +7,27 @@ input {
 	padding: 2px;
 }
 .table__text {
-	padding: 10px 15px 10px;
-	background: rgb(22, 58, 94);
-	color: rgb(174, 215, 248);
+	padding: 15px;
+	background: $darkBackground;
+	color: $lightBackground;
 	width: 200px;
 	font-size: 18px;
 	font-weight: 600;
+	height: 35px;
 }
 
 .table__button {
 	padding: 10px;
-	background: rgb(22, 58, 94);
+	background: $darkBackground;
 	width: 200px;
 	margin: 10px;
 }
 
 .table__button-btn {
-	border: 1px solid white;
+	border: 1px solid $inputColor;
 	padding: 6px;
-	color: rgb(22, 58, 94);
-	background: rgb(2, 199, 156);
+	color: $darkBackground;
+	background: $accentColor;
 	border-radius: 15px;
 	margin: 0px 15px;
 	width: 70px;
@@ -35,5 +36,5 @@ input {
 }
 
 .errorinput {
-	border: 2px solid red;
+	border: 2px solid $errorColor;
 }
