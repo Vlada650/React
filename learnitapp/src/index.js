@@ -6,9 +6,11 @@ import App from './App.js';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'mobx-react';
 import cardSliderStore from './stores/cardSliderStore'
+import AddNewWordStore from './stores/AddNewWordStore';
 
 const stores = {
-  cardSliderStore: new cardSliderStore()
+  cardSliderStore: new cardSliderStore(),
+  AddNewWordStore: new AddNewWordStore()
 }
 
 ReactDOM.render(

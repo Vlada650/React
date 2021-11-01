@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import {observer, inject} from "mobx-react";
 
-export default function AddNewWord({ loadWords }) {
-    const [value, setValue] = useState({
+const AddNewWord = inject(['AddNewWordStore'])(observer(({AddNewWordStore}) => {
+    
+    /*const [value, setValue] = useState({
         russian: '',
         english: '',
         transcription: '',
         tags: '',
     });
-
     const [error, setError] = useState({
         russian: false,
         english: false,
@@ -26,7 +27,6 @@ export default function AddNewWord({ loadWords }) {
             transcription: ''
         });
     };
-
     const funcSave = () => {
         fetch('/api/words/add', {
             method: 'POST',
@@ -47,10 +47,7 @@ export default function AddNewWord({ loadWords }) {
                     throw new Error('Что-то пошло не так');
                 }
             })
-        loadWords()
-        funcCancel()
     }
-
     const validateFunc = () => {
         if (value.english.match(/[А-Яа-яЁё]/gm)) {
             setError({ ...error, english: 'Только латинские буквы' })
@@ -63,41 +60,50 @@ export default function AddNewWord({ loadWords }) {
         }
     }
     const handleChange = (e) => {
-        setValue({ ...value, [e.target.name]: e.target.value });
+       // setValue({ ...value, [e.target.name]: e.target.value });
         setError({ ...error, [e.target.name]: !e.target.value.trim() })
-    };
+    };*/
 
     return (
         <div className="newword-form">
             <div className="newword-promo">Добавь своё слово:</div>
             <tr className="newword-table" >
                 <td className="addtable__text">
-                    <input type="text" name={'english'} value={value.english}
-                        onChange={handleChange} onBlur={validateFunc}
-                        className={error.english ? 'errorinput' : " "} placeholder="Слово"
-                    /><span><br />{error.english && error.english}</span>
-                </td>
-                <td className="addtable__text">
-                    <input type="text" name={'transcription'} value={value.transcription} onBlur={validateFunc}
-                        onChange={handleChange} className={error.transcription ? 'errorinput' : " "} placeholder="Транскрипция"
-                    /><span><br />{error.transcription && error.transcription}</span>
-                </td>
-                <td className="addtable__text">
-                    <input type="text" name={'russian'} value={value.russian}
-                        onChange={handleChange} onBlur={validateFunc} placeholder="Перевод"
-                        className={error.russian ? 'errorinput' : " "}
-                    /> <span><br />{error.russian && error.russian}</span>
-                </td>
-                <td className="addtable__text">
-                    <input type="text" name={'tags'} value={value.tags} placeholder="Теги"
-                        onChange={handleChange} className={error.tags ? 'errorinput' : " "}
-
+                    <input type="text" name={'english'} placeholder="Слово" 
+                    value={AddNewWordStore.value.english}
+                    onChange={AddNewWordStore.handleChange} 
+                    className={AddNewWordStore.error.english ? 'errorinput' : " "}
+                    onBlur={AddNewWordStore.validateFunc}
                     />
+                    <span><br />{AddNewWordStore.error.english && AddNewWordStore.error.english}</span>
+                </td>
+                <td className="addtable__text">
+                    <input type="text" name={'transcription'} placeholder="Транскрипция"
+                    value={AddNewWordStore.value.transcription}  
+                    className={AddNewWordStore.error.transcription ? 'errorinput' : " "} 
+                    onBlur={AddNewWordStore.validateFunc}
+                    onChange={AddNewWordStore.handleChange} 
+                    />
+                    <span><br />{AddNewWordStore.error.transcription && AddNewWordStore.error.transcription}</span>
+                </td>
+                <td className="addtable__text">
+                    <input type="text" name={'russian'} placeholder="Перевод"
+                    value={AddNewWordStore.value.russian}
+                    onChange={AddNewWordStore.handleChange}   
+                    className={AddNewWordStore.error.russian ? 'errorinput' : " "} 
+                    onBlur={AddNewWordStore.validateFunc}/>
+                    <span><br />{AddNewWordStore.error.russian && AddNewWordStore.error.russian}</span>
+                </td>
+                <td className="addtable__text">
+                    <input type="text" name={'tags'} placeholder="Теги"
+                    value={AddNewWordStore.value.tags} 
+                    onChange={AddNewWordStore.handleChange}/>
                 </td>
                 <td className="addtable__button">
-                    <button className="addtable__button-btn" onClick={funcCancel}>Cancel</button>
-                    <button className="addtable__button-btn" onClick={funcSave}>Save</button></td>
+                    <button className="addtable__button-btn" onClick={AddNewWordStore.funcCancel}>Cancel</button>
+                    <button className="addtable__button-btn" onClick={AddNewWordStore.funcSave}>Save</button></td>
             </tr>
         </div >
     );
-}
+}))
+export default AddNewWord;

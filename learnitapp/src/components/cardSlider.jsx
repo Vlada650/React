@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import {observer, inject} from "mobx-react";
 
 const CardSlider =  inject(['cardSliderStore'])(observer(({ cardSliderStore, words }) => {

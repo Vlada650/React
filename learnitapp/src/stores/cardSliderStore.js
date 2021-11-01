@@ -4,6 +4,7 @@ export default class cardSliderStore{
     position = 0;
     pushed = false;
     learned = 0;
+    words;
 
     constructor (){
         makeObservable (
@@ -20,23 +21,24 @@ export default class cardSliderStore{
         this.learned = 0;
     }; 
 
-     prevCardHandler  = (position) => {
-        if (position > 0) {
-            return position = position - 1
+     prevCardHandler  = () => {
+        if (this.position > 0) {
+            return this.position = this.position - 1
         }
     };
 
-     nextCardHandler = (words, position) => {
+     nextCardHandler = (words) => {
+         debugger
         if (this.position >= words.length - 1) {
             this.position = 0
         } else {
-            this.position = position + 1;
+            this.position =  this.position + 1;
             this.pushed = false;
         }
     };
 
-    btnTranslate = (learned) => {
+    btnTranslate = () => {
         this.pushed = true;
-        this.learned = learned + 1;
+        this.learned = this.learned + 1;
     }
 };
