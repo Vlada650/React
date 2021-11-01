@@ -7,10 +7,12 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from 'mobx-react';
 import cardSliderStore from './stores/cardSliderStore'
 import AddNewWordStore from './stores/AddNewWordStore';
+import InputFormStore from './stores/InputFormStore';
 
 const stores = {
   cardSliderStore: new cardSliderStore(),
-  AddNewWordStore: new AddNewWordStore()
+  AddNewWordStore: new AddNewWordStore(),
+  InputFormStore: new InputFormStore(),
 }
 
 ReactDOM.render(

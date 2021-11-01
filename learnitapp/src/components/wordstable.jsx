@@ -41,11 +41,7 @@ export default function WordsTable({ words, loadWords, setIsLoading }) {
     return (
         <>
             {isSelected ? (<InputForm
-                words={words} id={id}
-                loadWords={loadWords}
-                toggleSelected={toggleSelected}
-                setError={setError} error={error}
-                setValue={setValue} value={value} />)
+                words={words} id={id} />)
                 : (<tr className="table" >
                     <td className="table__text">{value.english}</td>
                     <td className="table__text">{value.transcription}</td>
