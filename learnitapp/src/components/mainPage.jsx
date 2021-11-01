@@ -18,7 +18,7 @@ const MainPage = ({ words, id, loadWords,  setIsLoading }) => {
                 <tbody>
                     {words.map((words) => {
                         return (
-                            <WordsTable words={words} id={id}  setIsLoading={setIsLoading} loadWords={loadWords} />)
+                            <WordsTable key={id} words={words} id={id}  setIsLoading={setIsLoading} loadWords={loadWords} />)
                     })}
                 </tbody>
             </table>

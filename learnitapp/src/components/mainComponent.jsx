@@ -51,17 +51,18 @@ export default function MainComponent() {
         <BrowserRouter>
             <div className="App">
                 <Header />
-                <Switch>
+                
                     <LoadingComponent isLoading={isLoading} error={error} words={words}>
+                       <Switch>
                         <Route exact path="/game">
                             <CardSlider words={words} />
                         </Route>
                         <Route exact path="/">
-                            <MainPage words={words} id={id}  setIsLoading={setIsLoading} loadWords={loadWords} />
+                            <MainPage key={id} words={words} id={id}  setIsLoading={setIsLoading} loadWords={loadWords} />
                         </Route>
+                        <Route path="/"><ErrorComponent /></Route> 
+                        </Switch>
                     </LoadingComponent>
-                    <Route path="*"><ErrorComponent /></Route>
-                </Switch>
                 <Footer />
             </div>
         </BrowserRouter>
