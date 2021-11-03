@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import InputForm from "./inputForm";
+import {observer, inject} from "mobx-react";
 
-export default function WordsTable({ words, loadWords, setIsLoading }) {
-    const { english, russian, transcription, tags, id } = words;
+const  WordsTable = inject(['WordsTableStore'])(observer(({WordsTableStore,id, words, english, russian}) => {
+
+
+    //const { english, russian, transcription, tags, id } = words;
     const [isSelected, toggleSelected] = useState(false);
-
-    const [error, setError] = useState({
+    /*const [error, setError] = useState({
         russian: false,
         english: false,
         transcription: false,
@@ -36,21 +38,23 @@ export default function WordsTable({ words, loadWords, setIsLoading }) {
             })
             .then(loadWords)
             setIsLoading(false)
-    };
+    };*/
 
     return (
         <>
             {isSelected ? (<InputForm
                 words={words} id={id} />)
                 : (<tr className="table" >
-                    <td className="table__text">{value.english}</td>
-                    <td className="table__text">{value.transcription}</td>
-                    <td className="table__text">{value.russian}</td>
-                    <td className="table__text">{value.tags}</td>
+                    <td className="table__text">{WordsTableStore.value.english}</td>
+                    <td className="table__text">{WordsTableStore.value.transcription}</td>
+                    <td className="table__text">{WordsTableStore.value.russian}</td>
+                    <td className="table__text">{WordsTableStore.value.tags}</td>
                     <td className="table__button">
                         <button className="table__button-btn" onClick={() => { toggleSelected(true) }}>Edit</button>
-                        <button className="table__button-btn" onClick={funcDelete}>Delete</button></td>
+                        <button className="table__button-btn" onClick={WordsTableStore.funcDelete}>Delete</button></td>
                 </tr>)}
         </>
     )
-}
+}))
+
+export default  WordsTable;

@@ -8,11 +8,15 @@ import {Provider} from 'mobx-react';
 import cardSliderStore from './stores/cardSliderStore'
 import AddNewWordStore from './stores/AddNewWordStore';
 import InputFormStore from './stores/InputFormStore';
+import WordsTableStore from './stores/WordsTableStore';
+import MainComponentStore from './stores/maiComponentStore';
 
 const stores = {
   cardSliderStore: new cardSliderStore(),
   AddNewWordStore: new AddNewWordStore(),
   InputFormStore: new InputFormStore(),
+  WordsTableStore: new WordsTableStore(),
+  MainComponentStore: new MainComponentStore(),
 }
 
 ReactDOM.render(

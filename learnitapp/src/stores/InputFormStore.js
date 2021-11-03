@@ -33,7 +33,7 @@ export default class InputFormStore{
                 transcription: '',
                 tags: '',
             };
-            this. error = {
+            this.error = {
                 russian: false,
                 english: false,
                 transcription: false,
@@ -68,7 +68,7 @@ export default class InputFormStore{
         debugger
         this.isSelected = false;//?????????
         this.value = { ...words };//????????
-        this. error = {
+        this.error = {
             russian: false,
             english: false,
             transcription: false,

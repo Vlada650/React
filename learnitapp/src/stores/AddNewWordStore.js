@@ -29,7 +29,7 @@ export default class AddNewWordStore{
             transcription: '',
             tags: '',
         };
-        this. error = {
+        this.error = {
             russian: false,
             english: false,
             transcription: false,

@@ -1,5 +1,6 @@
 import {action, makeObservable, observable} from 'mobx'
 
+
 export default class cardSliderStore{
     position = 0;
     pushed = false;
@@ -30,7 +31,7 @@ export default class cardSliderStore{
      nextCardHandler = (words) => {
          debugger
         if (this.position >= words.length - 1) {
-            this.position = 0
+            this.position = 0;
         } else {
             this.position =  this.position + 1;
             this.pushed = false;
