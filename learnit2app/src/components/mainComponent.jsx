@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Header from './header/index';
 import MainPage from "./mainPage/mainPage";
 import CardSlider from './cardSlider/cardSlider';
@@ -11,17 +11,19 @@ import {
     Route
 } from "react-router-dom";
 
-export default function MainComponent() {
+import {observer, inject} from "mobx-react";
 
-    const [words, setData] = useState([]);
+const  MainComponent = inject(['MainComponentStore'])(observer(({MainComponentStore, id, error}) => {
+    useEffect(() => {
+       // setIsLoading(true);
+       MainComponentStore.isLoading = true;
+       MainComponentStore.loadWords();
+    });
+
+    /*const [words, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null)
-
-    useEffect(() => {
-        setIsLoading(true);
-        loadWords()
-    }, []);
-
+    
     const loadWords = () => {
         fetch('/api/words/', {
             method: 'GET',
@@ -45,25 +47,26 @@ export default function MainComponent() {
                 setIsLoading(false)
             });
     }
-    const { id } = words
+    const { id } = words*/
 
     return (
         <BrowserRouter>
             <div className="App">
                 <Header />
-                <Switch>
-                    <LoadingComponent isLoading={isLoading} error={error} words={words}>
+                 <LoadingComponent words={MainComponentStore.words} isLoading={MainComponentStore.isLoading} error={MainComponentStore.error}>
+                       <Switch>
                         <Route exact path="/game">
-                            <CardSlider words={words} />
+                            <CardSlider words={MainComponentStore.words} />
                         </Route>
                         <Route exact path="/">
-                            <MainPage words={words} id={id} loadWords={loadWords} />
+                            <MainPage key={id} words={MainComponentStore.words} id={MainComponentStore.id} loadWords={MainComponentStore.loadWords} />
                         </Route>
+                        <Route path="/"><ErrorComponent /></Route> 
+                        </Switch>
                     </LoadingComponent>
-                    <Route path="*"><ErrorComponent /></Route>
-                </Switch>
                 <Footer />
             </div>
         </BrowserRouter>
     )
-}
+}))
+export default MainComponent;

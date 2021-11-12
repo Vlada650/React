@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import './wordsTable.scss';
 import InputForm from "../inputForm/inputForm";
 
-export default function WordsTable({ words, loadWords }) {
-    const { english, russian, transcription, tags, id } = words;
+import {observer, inject} from "mobx-react";
+const  WordsTable = inject(['WordsTableStore'])(observer(({WordsTableStore, words, id}) => {
+
+  /* const { english, russian, transcription, tags, id } = words;
     const [isSelected, toggleSelected] = useState(false);
 
     const [error, setError] = useState({
@@ -38,25 +40,24 @@ export default function WordsTable({ words, loadWords }) {
             .then(loadWords)
         console.log('2step')
 
-    };
+    };*/
 
     return (
-        <>
-            {isSelected ? (<InputForm
-                words={words} id={id}
-                loadWords={loadWords}
-                toggleSelected={toggleSelected}
-                setError={setError} error={error}
-                setValue={setValue} value={value} />)
+        <> 
+            {WordsTableStore.isSelected ? (<InputForm
+                words={words} id={id} />)
                 : (<tr className="table" >
-                    <td className="table__text">{value.english}</td>
-                    <td className="table__text">{value.transcription}</td>
-                    <td className="table__text">{value.russian}</td>
-                    <td className="table__text">{value.tags}</td>
+                    <td className="table__text">{WordsTableStore.value.english}</td>
+                    <td className="table__text">{WordsTableStore.value.transcription}</td>
+                    <td className="table__text">{WordsTableStore.value.russian}</td>
+                    <td className="table__text">{WordsTableStore.value.tags}</td>
                     <td className="table__button">
-                        <button className="table__button-btn" onClick={() => { toggleSelected(true) }}>Edit</button>
-                        <button className="table__button-btn" onClick={funcDelete}>Delete</button></td>
-                </tr>)}
+                        <button className="table__button-btn" onClick={() => { WordsTableStore.toggleSelected(true) }}>Edit</button>
+                        <button className="table__button-btn" onClick={WordsTableStore.funcDelete}>Delete</button></td>
+                </tr>)
+            }
+                   
         </>
     )
-}
+}))
+export default  WordsTable;

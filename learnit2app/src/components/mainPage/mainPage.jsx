@@ -2,7 +2,7 @@ import React from "react";
 import './mainPage.scss';
 import WordsTable from '../wordsTable/wordstable'
 import AddNewWord from "../addNewWord/addNewWord";
-const MainPage = ({ words, id, loadWords }) => {
+const MainPage = ({ key, words, id, loadWords }) => {
     return (
         <>
             <AddNewWord loadWords={loadWords} />
@@ -19,7 +19,7 @@ const MainPage = ({ words, id, loadWords }) => {
                 <tbody>
                     {words.map((words) => {
                         return (
-                            <WordsTable words={words} id={id} loadWords={loadWords} />)
+                            <WordsTable key={key} words={words} id={id} loadWords={loadWords} />)
                     })}
                 </tbody>
             </table>
