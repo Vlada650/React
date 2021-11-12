@@ -6,7 +6,7 @@ export default function Footer() {
         <div className="footer">
             <img src={logo} className="footer__logo" alt="logo" />
             <span className="footer__promo">Изучай новые слова каждый день!</span>
-            <div className="footer__info">Info</div>
+            <div className="footer__info">2021</div>
         </div>
     );
 }

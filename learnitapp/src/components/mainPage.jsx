@@ -1,6 +1,7 @@
 import React from "react";
 import WordsTable from './wordstable'
 import AddNewWord from "./addNewWord";
+
 const MainPage = ({ words, id, loadWords,  setIsLoading }) => {
     return (
         <>

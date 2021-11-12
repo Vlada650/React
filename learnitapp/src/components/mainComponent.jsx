@@ -10,21 +10,18 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import {observer, inject} from "mobx-react";
 
+export default function MainComponent() {
 
-const  MainComponent = inject(['MainComponentStore'])(observer(({MainComponentStore, words}) => {
-
-    /*const [words, setData] = useState([]);
+    const [words, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null)
-
-    /*useEffect(() => {
-        setIsLoading(true);
+    useEffect(() => {
+       setIsLoading(true);
         loadWords()
     }, []);
 
-    const loadWords = () => {
+   const loadWords = () => {
         fetch('/api/words/', {
             method: 'GET',
             headers: {
@@ -46,21 +43,20 @@ const  MainComponent = inject(['MainComponentStore'])(observer(({MainComponentSt
                 setError(error)
                 setIsLoading(false)
             });
-    }*/
+    }
     const { id } = words
 
     return (
         <BrowserRouter>
             <div className="App">
                 <Header />
-                
-                    <LoadingComponent words={words}>
+                <LoadingComponent isLoading={isLoading} error={error} words={words}>
                        <Switch>
                         <Route exact path="/game">
                             <CardSlider words={words} />
                         </Route>
                         <Route exact path="/">
-                            <MainPage key={id} words={words} id={id}  />
+                            <MainPage key={id} words={words} id={id}  setIsLoading={setIsLoading} loadWords={loadWords}  />
                         </Route>
                         <Route path="/"><ErrorComponent /></Route> 
                         </Switch>
@@ -69,5 +65,4 @@ const  MainComponent = inject(['MainComponentStore'])(observer(({MainComponentSt
             </div>
         </BrowserRouter>
     )
-}))
-export default MainComponent;
+}

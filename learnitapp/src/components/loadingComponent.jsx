@@ -1,7 +1,6 @@
 import React from "react";
 import loader1 from '../assets/images/loader1.gif'
 
-
 const LoadingComponent = ({ isLoading, error, children, words }) => {
     if (isLoading || !words.length) {
         return <div className="loading"> <img src={loader1} alt="loader" className="loading__img" />

@@ -28,6 +28,7 @@ const CardSlider =  ({words }) => {
         setPushed(true);
         setLearned(learned + 1);
     }
+    
     return (
         < div className="slider" >
             <div className="slider-container">
