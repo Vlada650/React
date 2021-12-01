@@ -17,7 +17,7 @@ import { observer, inject } from "mobx-react";
 const MainComponent = inject(['MainComponentStore'])(observer(({ MainComponentStore }) => {
     useEffect(() => {
         MainComponentStore.loadWords();
-    });
+    }, []);
     /* const [words, setData] = useState([]);
      const [isLoading, setIsLoading] = useState(false);
      const [error, setError] = useState(null)
