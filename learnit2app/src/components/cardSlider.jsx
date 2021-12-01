@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
-import './cardSlider.scss';
+import React, { useEffect, useRef, useState } from "react";
 
 const CardSlider = ({ words }) => {
+
+    const ref = useRef();
+    useEffect(() => ref.current.focus(), []);
+
     const [position, setPosition] = useState(0)
     const [pushed, setPushed] = useState(false);
     const [learned, setLearned] = useState(0)
-    const ref = useRef();
-    useEffect(() => ref.current.focus(), []);
 
     const prevCardHandler = () => {
         if (position > 0) {
@@ -27,6 +28,7 @@ const CardSlider = ({ words }) => {
         setPushed(true);
         setLearned(learned + 1);
     }
+
     return (
         < div className="slider" >
             <div className="slider-container">
@@ -43,6 +45,6 @@ const CardSlider = ({ words }) => {
             <div className="slider-numbers">Изучено слов: {learned}</div>
         </div >
     )
-}
+};
 
 export default CardSlider;

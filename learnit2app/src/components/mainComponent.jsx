@@ -1,72 +1,74 @@
 import React, { useEffect } from 'react';
-import Header from './header/index';
-import MainPage from "./mainPage/mainPage";
-import CardSlider from './cardSlider/cardSlider';
-import Footer from './footer/index';
-import LoadingComponent from "./loadingComponent/loadingComponent";
-import ErrorComponent from './errorComponent/errorComponent'
+import Header from './header';
+import MainPage from "./mainPage";
+import CardSlider from './cardSlider';
+import Footer from './footer';
+import LoadingComponent from "./loadingComponent";
+import ErrorComponent from './errorComponent';
+import '../assets/styles/style.scss';
 import {
     BrowserRouter,
     Switch,
     Route
 } from "react-router-dom";
 
-import {observer, inject} from "mobx-react";
+import { observer, inject } from "mobx-react";
 
-const  MainComponent = inject(['MainComponentStore'])(observer(({MainComponentStore, id, error}) => {
+const MainComponent = inject(['MainComponentStore'])(observer(({ MainComponentStore }) => {
     useEffect(() => {
-       // setIsLoading(true);
-       MainComponentStore.isLoading = true;
-       MainComponentStore.loadWords();
+        MainComponentStore.loadWords();
     });
-
-    /*const [words, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null)
-    
+    /* const [words, setData] = useState([]);
+     const [isLoading, setIsLoading] = useState(false);
+     const [error, setError] = useState(null)
+     useEffect(() => {
+        setIsLoading(true);
+         loadWords()
+     }, []);
+ 
     const loadWords = () => {
-        fetch('/api/words/', {
-            method: 'GET',
-            headers: {
-                'Content-type': 'application/json;charset=utf-8'
-            }
-        })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Что-то пошло не так');
-                }
-            })
-            .then((response) => {
-                setData(response)
-                setIsLoading(false)
-            })
-            .catch(error => {
-                setError(error)
-                setIsLoading(false)
-            });
-    }
-    const { id } = words*/
+         fetch('/api/words/', {
+             method: 'GET',
+             headers: {
+                 'Content-type': 'application/json;charset=utf-8'
+             }
+         })
+             .then(response => {
+                 if (response.ok) {
+                     return response.json();
+                 } else {
+                     throw new Error('Что-то пошло не так');
+                 }
+             })
+             .then((response) => {
+                 setData(response)
+                 setIsLoading(false)
+             })
+             .catch(error => {
+                 setError(error)
+                 setIsLoading(false)
+             });
+     }*/
 
     return (
         <BrowserRouter>
             <div className="App">
                 <Header />
-                 <LoadingComponent words={MainComponentStore.words} isLoading={MainComponentStore.isLoading} error={MainComponentStore.error}>
-                       <Switch>
+                <LoadingComponent isLoading={MainComponentStore.isLoading} error={MainComponentStore.error} words={MainComponentStore.words}>
+                    <Switch>
                         <Route exact path="/game">
                             <CardSlider words={MainComponentStore.words} />
                         </Route>
                         <Route exact path="/">
-                            <MainPage key={id} words={MainComponentStore.words} id={MainComponentStore.id} loadWords={MainComponentStore.loadWords} />
+                            <MainPage key={MainComponentStore.id} words={MainComponentStore.words} id={MainComponentStore.id} loadWords={MainComponentStore.loadWords} />
                         </Route>
-                        <Route path="/"><ErrorComponent /></Route> 
-                        </Switch>
-                    </LoadingComponent>
+                        <Route path="/"><ErrorComponent /></Route>
+                    </Switch>
+                </LoadingComponent>
                 <Footer />
             </div>
         </BrowserRouter>
     )
 }))
+
 export default MainComponent;
