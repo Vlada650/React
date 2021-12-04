@@ -98,8 +98,7 @@ const AddNewWord = inject(['MainComponentStore'])(observer(({ MainComponentStore
                 </td>
                 <td className="addtable__text">
                     <input type="text" name={'tags'} value={value.tags} placeholder="Теги"
-                        onChange={handleChange} className={error.tags ? 'errorinput' : " "}
-
+                        onChange={handleChange}
                     />
                 </td>
                 <td className="addtable__button">

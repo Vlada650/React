@@ -4,7 +4,6 @@ import InputForm from "./inputForm";
 import { observer, inject } from "mobx-react";
 const WordsTable = inject(['MainComponentStore'])(observer(({ MainComponentStore, words }) => {
 
-    console.log(words)
     const { english, russian, transcription, tags, id } = words;
     const [isSelected, toggleSelected] = useState(false);
     const [error, setError] = useState({
@@ -43,8 +42,8 @@ const WordsTable = inject(['MainComponentStore'])(observer(({ MainComponentStore
 
     return (
         <>
-            {isSelected ? (<InputForm
-                toggleSelected={toggleSelected}
+            {isSelected ? (<InputForm funcSave={MainComponentStore.funcSave}
+                toggleSelected={toggleSelected} words={MainComponentStore.words}
                 setError={setError} error={error}
                 setValue={setValue} value={value} />)
                 : (<tr className="table" >

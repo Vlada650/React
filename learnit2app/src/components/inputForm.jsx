@@ -1,10 +1,9 @@
 import React from "react";
-import { observer, inject } from "mobx-react";
 
-const InputForm = inject(['MainComponentStore'])(observer(({ MainComponentStore, words }, { value, error, toggleSelected, setValue, setError }) => {
+const InputForm = ({ words, value, error, toggleSelected, setValue, setError, funcSave }) => {
 
-    //const btnDisabled = Object.values(error).some(el => el);
-
+    const btnDisabled = Object.values(error).some(el => el);
+    console.log(words)
     const handleChange = (e) => {
         setValue({ ...value, [e.target.name]: e.target.value });
         setError({ ...error, [e.target.name]: !e.target.value.trim() })
@@ -28,29 +27,28 @@ const InputForm = inject(['MainComponentStore'])(observer(({ MainComponentStore,
         setError(false)
     };
 
-    /* const funcSave = () => {
-         toggleSelected(false);
-         fetch(`/api/words/${id}/update`, {
-             method: 'POST',
-             headers: {
-                 'Content-type': 'application/json;charset=utf-8'
-             },
-             body: JSON.stringify({
-                 english: value.english,
-                 russian: value.russian,
-                 transcription: value.transcription,
-                 tags: value.tags
-             })
-         })
-             .then(response => {
-                 if (response.ok) {
-                     return response.json();
-                 } else {
-                     throw new Error('Что-то пошло не так');
-                 }
-             })
-             .then(loadWords)
-     }*/
+    /*  const funcSave = () => {
+          toggleSelected(false);
+          fetch(`/api/words/${id}/update`, {
+              method: 'POST',
+              headers: {
+                  'Content-type': 'application/json;charset=utf-8'
+              },
+              body: JSON.stringify({
+                  english: value.english,
+                  russian: value.russian,
+                  transcription: value.transcription,
+                  tags: value.tags
+              })
+          })
+              .then(response => {
+                  if (response.ok) {
+                      return response.json();
+                  } else {
+                      throw new Error('Что-то пошло не так');
+                  }
+              })
+      }*/
 
     return (
         <tr className="table" >
@@ -80,9 +78,9 @@ const InputForm = inject(['MainComponentStore'])(observer(({ MainComponentStore,
             </td>
             <td className="table__button">
                 <button className="table__button-btn" onClick={funcCancel}>Cancel</button>
-                <button className="table__button-btn" onClick={MainComponentStore.funcSave}>Save</button></td>
+                <button className="table__button-btn" disabled={btnDisabled} onClick={funcSave}>Save</button></td>
         </tr>
     )
-}))
+}
 
 export default InputForm;
