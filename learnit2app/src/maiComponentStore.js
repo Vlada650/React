@@ -34,7 +34,8 @@ export default class MainComponentStore {
             });
     }
 
-    addWord = (english, russian, transcription, tags) => {
+    addWord = (value) => {
+        console.log(value)
         this.isLoading = true;
         fetch('/api/words/add', {
             method: 'POST',
@@ -42,10 +43,10 @@ export default class MainComponentStore {
                 'Content-type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
-                english: english,
-                russian: russian,
-                transcription: transcription,
-                tags: tags
+                english: value.english,
+                russian: value.russian,
+                transcription: value.transcription,
+                tags: value.tags
             })
         })
             .then(response => {

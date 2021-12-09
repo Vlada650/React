@@ -11,9 +11,9 @@ const AddNewWord = inject(['MainComponentStore'])(observer(({ MainComponentStore
     });
 
     const [error, setError] = useState({
-        russian: false,
-        english: false,
-        transcription: false
+        russiane: false,
+        englishe: false,
+        transcriptione: false
     });
 
     const funcCancel = () => {
@@ -24,12 +24,16 @@ const AddNewWord = inject(['MainComponentStore'])(observer(({ MainComponentStore
             tags: '',
         });
         setError({
-            russian: '',
-            english: '',
-            transcription: ''
+            russiane: '',
+            englishe: '',
+            transcriptione: ''
         });
     };
 
+
+    const addWord = () => {
+        MainComponentStore.addWord(value)
+    }
     /*const funcSave = () => {
         fetch('/api/words/add', {
             method: 'POST',
@@ -60,11 +64,11 @@ const AddNewWord = inject(['MainComponentStore'])(observer(({ MainComponentStore
 
     const validateFunc = () => {
         if (value.english.match(/[А-Яа-яЁё]/gm)) {
-            setError({ ...error, english: 'Только латинские буквы' })
+            setError({ ...error, englishe: 'Только латинские буквы' })
         } else if (value.russian.match(/[A-Za-z]/gm)) {
-            setError({ ...error, russian: 'Только русские буквы' })
+            setError({ ...error, russiane: 'Только русские буквы' })
         } else if (value.transcription.match(/[А-Яа-яЁё]/gm)) {
-            setError({ ...error, transcription: 'Только латинские буквы' })
+            setError({ ...error, transcriptione: 'Только латинские буквы' })
         } else {
             setError('')
         }
@@ -82,19 +86,19 @@ const AddNewWord = inject(['MainComponentStore'])(observer(({ MainComponentStore
                 <td className="addtable__text">
                     <input type="text" name={'english'} value={value.english}
                         onChange={handleChange} onBlur={validateFunc}
-                        className={error.english ? 'errorinput' : " "} placeholder="Слово"
-                    /><span><br />{error.english && error.english}</span>
+                        className={error.englishe ? 'errorinput' : " "} placeholder="Слово"
+                    /><span><br />{error.englishe && error.englishe}</span>
                 </td>
                 <td className="addtable__text">
                     <input type="text" name={'transcription'} value={value.transcription} onBlur={validateFunc}
-                        onChange={handleChange} className={error.transcription ? 'errorinput' : " "} placeholder="Транскрипция"
-                    /><span><br />{error.transcription && error.transcription}</span>
+                        onChange={handleChange} className={error.transcriptione ? 'errorinput' : " "} placeholder="Транскрипция"
+                    /><span><br />{error.transcriptione && error.transcriptione}</span>
                 </td>
                 <td className="addtable__text">
                     <input type="text" name={'russian'} value={value.russian}
                         onChange={handleChange} onBlur={validateFunc} placeholder="Перевод"
-                        className={error.russian ? 'errorinput' : " "}
-                    /> <span><br />{error.russian && error.russian}</span>
+                        className={error.russiane ? 'errorinput' : " "}
+                    /> <span><br />{error.russiane && error.russiane}</span>
                 </td>
                 <td className="addtable__text">
                     <input type="text" name={'tags'} value={value.tags} placeholder="Теги"
@@ -103,7 +107,7 @@ const AddNewWord = inject(['MainComponentStore'])(observer(({ MainComponentStore
                 </td>
                 <td className="addtable__button">
                     <button className="addtable__button-btn" onClick={funcCancel}>Cancel</button>
-                    <button className="addtable__button-btn" onClick={MainComponentStore.addWord}>Save</button></td>
+                    <button className="addtable__button-btn" onClick={addWord}>Save</button></td>
             </tr>
         </div >
     )
